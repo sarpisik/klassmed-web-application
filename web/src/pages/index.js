@@ -1,11 +1,13 @@
 import React, { Fragment, useState } from 'react'
 import { graphql } from 'gatsby'
-import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
+import Img from 'gatsby-image'
+import { mapEdgesToNodes, filterOutDocsWithoutSlugs, mapImagesToFluid } from '../lib/helpers'
 import BlogPostPreviewGrid from '../components/blog-post-preview-grid'
 import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import SlideContainer from '../containers/slide'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -13,6 +15,20 @@ export const query = graphql`
       title
       description
       keywords
+    }
+
+    slides: allSanitySlide {
+      edges {
+        node {
+          mainImage {
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
+        }
+      }
     }
 
     projects: allSanityProject(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
@@ -106,6 +122,8 @@ const IndexPage = props => {
   const projectNodes = (data || {}).projects
     ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
     : []
+  const slideImages = (data || {}).slides ? mapImagesToFluid(data.slides) : []
+  console.log(data.slides)
 
   if (!site) {
     throw new Error(
@@ -168,49 +186,7 @@ const IndexPage = props => {
         </ul>
       </nav>
       <div id='mobile-body-overly' />
-      <section className='banner-area'>
-        <div className='container'>
-          <div className='row fullscreen d-flex align-items-center justify-content-center'>
-            <div className='banner-content col-lg-10'>
-              <h5 className='text-white text-uppercase'>Now you can feel the Heat</h5>
-              <h1>Smart New Future</h1>
-              <a href='#' className='primary-btn text-uppercase'>
-                Buy Now
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className='video-sec-area section-gap' id='about'>
-        <div className='container'>
-          <div className='row justify-content-center align-items-center '>
-            <div className='col-lg-6 video-left'>
-              <h6>Br/and new app to blow your mind</h6>
-              <h1>
-                We’ve made a life <br />
-                that will change you
-              </h1>
-              <p>
-                <span>We are here to listen from you deliver exellence</span>
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp or
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
-              </p>
-              <a className='primary-btn' href='#'>
-                Get Started now
-              </a>
-            </div>
-            <div className='col-lg-6 video-right justify-content-center align-items-center d-flex'>
-              <div className='overlay overlay-bg' />
-              <a className='play-btn' href='https://www.youtube.com/watch?v=ARA0AxrnHdM'>
-                <img className='img-fluid' src='img/play-icon.png' alt='' />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <SlideContainer images={slideImages} />
 
       <section className='top-course-area section-gap'>
         <div className='container'>

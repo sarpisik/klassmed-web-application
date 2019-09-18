@@ -9,6 +9,19 @@ export function mapEdgesToNodes (data) {
   return data.edges.map(edge => edge.node)
 }
 
+export function mapImagesToFluid (data) {
+  return mapEdgesToNodes(data).map(
+    ({
+      mainImage: {
+        asset: {
+          fluid
+          // childImageSharp: { fluid }
+        }
+      }
+    }) => fluid
+  )
+}
+
 export function filterOutDocsWithoutSlugs ({ slug }) {
   return (slug || {}).current
 }

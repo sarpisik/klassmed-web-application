@@ -1,6 +1,9 @@
 import { graphql, StaticQuery } from 'gatsby'
 import React, { useState } from 'react'
 import Layout from '../components/layout'
+import '@fortawesome/fontawesome-free/css/all.min.css'
+import 'bootstrap-css-only/css/bootstrap.min.css'
+import 'mdbreact/dist/css/mdb.css'
 
 const query = graphql`
   query SiteTitleQuery {
