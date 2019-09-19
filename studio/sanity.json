@@ -6,7 +6,7 @@
   },
   "project": {
     "name": "Klassmed",
-    "basePath": "/"
+    "basePath": "/studio"
   },
   "plugins": [
     "@sanity/base",
