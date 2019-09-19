@@ -1,8 +1,8 @@
 import React from 'react'
-import Product from '../components/product'
+import LandingProduct from '../components/landingProduct'
 
-const ProductContainer = ({ products }) => {
-  return products.map(Product)
+const LandingProductContainer = ({ products }) => {
+  return products.map(LandingProduct)
 }
 
-export default ProductContainer
+export default LandingProductContainer

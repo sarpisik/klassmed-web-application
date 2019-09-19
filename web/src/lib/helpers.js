@@ -10,20 +10,19 @@ export function mapEdgesToNodes (data) {
 }
 
 export function mapImagesToFluid (data) {
-  return mapEdgesToNodes(data).map(
-    ({
-      mainImage: {
-        asset: {
-          fluid
-          // childImageSharp: { fluid }
-        }
-      }
-    }) => fluid
-  )
+  return mapEdgesToNodes(data).map(mapImageToSources)
 }
 
 export function filterOutDocsWithoutSlugs ({ slug }) {
   return (slug || {}).current
+}
+
+export function filterOutProducts (data) {
+  return mapEdgesToNodes(data).map(node => ({
+    image: mapImageToSources(node),
+    title: mapNodeToAttribute(node, 'title'),
+    slug: mapNodeToSlug(node)
+  }))
 }
 
 export function getBlogUrl (publishedAt, slug) {
@@ -39,4 +38,23 @@ export function buildImageObj (source) {
   if (source.hotspot) imageObj.hotspot = source.hotspot
 
   return imageObj
+}
+
+function mapImageToSources ({
+  mainImage: {
+    asset: {
+      fluid
+      // childImageSharp: { fluid }
+    }
+  }
+}) {
+  return fluid
+}
+
+function mapNodeToAttribute (node, key) {
+  return node[key]
+}
+
+function mapNodeToSlug (node) {
+  return mapNodeToAttribute(node, 'slug').current
 }

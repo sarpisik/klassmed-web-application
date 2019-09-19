@@ -4,6 +4,9 @@ import Layout from '../components/layout'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import 'bootstrap-css-only/css/bootstrap.min.css'
 import 'mdbreact/dist/css/mdb.css'
+import '../styles/font-awesome.min.css'
+import '../styles/linearicons.css'
+import '../styles/main.css'
 
 const query = graphql`
   query SiteTitleQuery {

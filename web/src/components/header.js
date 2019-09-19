@@ -1,9 +1,6 @@
 import { Link } from 'gatsby'
 import React, { Fragment } from 'react'
-import Icon from './icons'
-import { cn } from '../lib/helpers'
-
-import styles from './header.module.css'
+import logo from '../images/logo.png'
 
 const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => {
   const handleClick = () => {
@@ -21,39 +18,22 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => {
           <div className='row align-items-center justify-content-between d-flex'>
             <div id='logo'>
               <a href='index.html'>
-                <img src='img/logo.png' alt='' title='' />
+                <img src={logo} alt='' title='' />
               </a>
             </div>
             <nav id='nav-menu-container'>
               <ul className='nav-menu'>
                 <li className='menu-active'>
-                  <a href='#home'>Home</a>
+                  <Link to='/'>Anasayfa</Link>
                 </li>
                 <li>
-                  <a href='#about'>About</a>
+                  <Link to='/about'>Kurumsal</Link>
                 </li>
                 <li>
-                  <a href='#service'>Service</a>
+                  <Link to='/products'>Ürünlerimiz</Link>
                 </li>
                 <li>
-                  <a href='#unique'>Unique Feature</a>
-                </li>
-                <li>
-                  <a href='#review'>Review</a>
-                </li>
-                <li>
-                  <a href='#faq'>Faq</a>
-                </li>
-                <li className='menu-has-children'>
-                  <a href=''>Pages</a>
-                  <ul>
-                    <li>
-                      <a href='generic.html'>Generic</a>
-                    </li>
-                    <li>
-                      <a href='elements.html'>Elements</a>
-                    </li>
-                  </ul>
+                  <Link to='/services'>Teknik Destek</Link>
                 </li>
               </ul>
             </nav>

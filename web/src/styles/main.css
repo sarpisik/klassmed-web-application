@@ -1603,7 +1603,7 @@ h6 {
 }
 
 .primary-checkbox input:checked + label {
-  background: url(../img/elements/primary-check.png) no-repeat center center/cover;
+  background: url(../images/elements/primary-check.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -1641,7 +1641,7 @@ h6 {
 }
 
 .confirm-checkbox input:checked + label {
-  background: url(../img/elements/success-check.png) no-repeat center center/cover;
+  background: url(../images/elements/success-check.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -1684,7 +1684,7 @@ h6 {
 }
 
 .disabled-checkbox input:checked + label {
-  background: url(../img/elements/disabled-check.png) no-repeat center center/cover;
+  background: url(../images/elements/disabled-check.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -1722,7 +1722,7 @@ h6 {
 }
 
 .primary-radio input:checked + label {
-  background: url(../img/elements/primary-radio.png) no-repeat center center/cover;
+  background: url(../images/elements/primary-radio.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -1760,7 +1760,7 @@ h6 {
 }
 
 .confirm-radio input:checked + label {
-  background: url(../img/elements/success-radio.png) no-repeat center center/cover;
+  background: url(../images/elements/success-radio.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -1803,7 +1803,7 @@ h6 {
 }
 
 .disabled-radio input:checked + label {
-  background: url(../img/elements/disabled-radio.png) no-repeat center center/cover;
+  background: url(../images/elements/disabled-radio.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -2327,11 +2327,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   bottom: 0;
 }
 
-.banner-area {
-  background: url(../img/header-bg.png) center;
-  background-size: cover;
-}
-
 .banner-area .fullscreen {
   height: 800px !important;
 }
@@ -2440,12 +2435,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   .video-left {
     margin-bottom: 30px;
   }
-}
-
-.video-right {
-  background: url(../img/video-bg.png) no-repeat center;
-  background-size: cover;
-  height: 350px;
 }
 
 .video-right .overlay-bg {
@@ -2633,7 +2622,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .faq-area {
-  background: url(../img/faq-bg.jpg) center;
+  background: url(../images/faq-bg.jpg) center;
   background-size: cover;
 }
 

@@ -1,13 +1,18 @@
-import React, { Fragment, useState } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
-import { mapEdgesToNodes, filterOutDocsWithoutSlugs, mapImagesToFluid } from '../lib/helpers'
-import BlogPostPreviewGrid from '../components/blog-post-preview-grid'
+import Img from 'gatsby-image'
+import {
+  mapEdgesToNodes,
+  filterOutDocsWithoutSlugs,
+  filterOutProducts,
+  mapImagesToFluid
+} from '../lib/helpers'
 import GraphQLErrorList from '../components/graphql-error-list'
-import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import SlideContainer from '../containers/slide'
 import ProductContainer from '../containers/product'
+import ProductsList from '../containers/productsList'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -26,20 +31,53 @@ export const query = graphql`
                 ...GatsbySanityImageFluid
               }
             }
+            alt
           }
         }
       }
     }
 
-    products: allSanityProduct(limit: 1, sort: { fields: [publishedAt], order: DESC }) {
+    landingProduct: allSanityProduct(
+      limit: 1
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { categories: { elemMatch: { title: { eq: "lazer" } } } }
+    ) {
       edges {
         node {
           mainImage {
             asset {
-              fluid {
+              fluid(maxWidth: 500) {
                 ...GatsbySanityImageFluid
               }
             }
+            alt
+          }
+        }
+      }
+    }
+
+    otherProduct: file(relativePath: { eq: "cilt_bakım_cihazı.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 446) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
+    products: allSanityProduct(limit: 4, sort: { fields: [publishedAt], order: DESC }, filter: {}) {
+      edges {
+        node {
+          title
+          slug {
+            current
+          }
+          mainImage {
+            asset {
+              fluid(maxWidth: 500) {
+                ...GatsbySanityImageFluid
+              }
+            }
+            alt
           }
         }
       }
@@ -137,7 +175,10 @@ const IndexPage = props => {
     ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
     : []
   const slideImages = (data || {}).slides ? mapImagesToFluid(data.slides) : []
-  const productImage = (data || {}).products ? mapImagesToFluid(data.products) : []
+  const landingProductImage = (data || {}).landingProduct
+    ? mapImagesToFluid(data.landingProduct)
+    : []
+  const productNodes = (data || {}).products ? filterOutProducts(data.products) : []
 
   if (!site) {
     throw new Error(
@@ -163,54 +204,75 @@ const IndexPage = props => {
             browseMoreHref='/blog/'
           />
         )} */}
-      <nav id='mobile-nav'>
-        <ul className='' style={{ touchAction: 'pan-y' }} id=''>
-          <li className='menu-active'>
-            <a href='#home'>Home</a>
-          </li>
-          <li>
-            <a href='#about'>About</a>
-          </li>
-          <li>
-            <a href='#service'>Service</a>
-          </li>
-          <li>
-            <a href='#unique'>Unique Feature</a>
-          </li>
-          <li>
-            <a href='#review'>Review</a>
-          </li>
-          <li>
-            <a href='#faq'>Faq</a>
-          </li>
-          <li className='menu-has-children'>
-            <i className='lnr lnr-chevron-down' />
-            <a href='' className='sf-with-ul'>
-              Pages
-            </a>
-            <ul style={{ display: 'none' }}>
-              <li>
-                <a href='generic.html'>Generic</a>
-              </li>
-              <li>
-                <a href='elements.html'>Elements</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <div id='mobile-body-overly' />
       <SlideContainer images={slideImages} />
 
       <section className='top-course-area section-gap'>
-        <ProductContainer products={productImage} />
+        <div className='container'>
+          <div className='row d-flex justify-content-center'>
+            <div className='menu-content pb-60 col-lg-10'>
+              <div className='title text-center'>
+                <h1 className='mb-10'>Top Courses That are open for Students</h1>
+                <p>Who are in extremely love with eco friendly system.</p>
+              </div>
+            </div>
+          </div>
+          <div className='row justify-content-center align-items-center'>
+            <div className='col-lg-3 course-left'>
+              <div className='single-course'>
+                <span className='lnr lnr-rocket' />
+                <a href='#'>
+                  <h4>High Performance</h4>
+                </a>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisic ing elit, seddo eiusmod tempor
+                  incid.idunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+              <div className='single-course'>
+                <span className='lnr lnr-cog' />
+                <a href='#'>
+                  <h4>High Performance</h4>
+                </a>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisic ing elit, seddo eiusmod tempor
+                  incid.idunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+            </div>
+            <div className='col-lg-6 course-middle'>
+              <ProductContainer products={landingProductImage} />
+            </div>
+            <div className='col-lg-3 course-right'>
+              <div className='single-course'>
+                <span className='lnr lnr-apartment' />
+                <a href='#'>
+                  <h4>High Performance</h4>
+                </a>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisic ing elit, seddo eiusmod tempor
+                  incid.idunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+              <div className='single-course'>
+                <span className='lnr lnr-phone' />
+                <a href='#'>
+                  <h4>High Performance</h4>
+                </a>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisic ing elit, seddo eiusmod tempor
+                  incid.idunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className='home-about-area'>
         <div className='container-fluid'>
           <div className='row justify-content-center align-items-center'>
             <div className='col-lg-6 no-padding home-about-left'>
-              <img className='img-fluid' src='img/about-img.jpg' alt='' />
+              <Img className='img-fluid' fluid={data.otherProduct.childImageSharp.fluid} />
             </div>
             <div className='col-lg-6 no-padding home-about-right'>
               <h1>
@@ -329,54 +391,7 @@ const IndexPage = props => {
             </div>
           </div>
           <div className='row'>
-            <div className='col-lg-3 col-md-6'>
-              <div className='single-unique-product'>
-                <img className='img-fluid' src='img/u1.jpg' alt='' />
-                <div className='desc'>
-                  <h4>Apple Watch White</h4>
-                  <h6>£399.00</h6>
-                  <a className='text-uppercase primary-btn' href='#'>
-                    Pre Order
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-3 col-md-6'>
-              <div className='single-unique-product'>
-                <img className='img-fluid' src='img/u2.jpg' alt='' />
-                <div className='desc'>
-                  <h4>Apple Watch White</h4>
-                  <h6>£399.00</h6>
-                  <a className='text-uppercase primary-btn' href='#'>
-                    Pre Order
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-3 col-md-6'>
-              <div className='single-unique-product'>
-                <img className='img-fluid' src='img/u3.jpg' alt='' />
-                <div className='desc'>
-                  <h4>Apple Watch White</h4>
-                  <h6>£399.00</h6>
-                  <a className='text-uppercase primary-btn' href='#'>
-                    Pre Order
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-3 col-md-6'>
-              <div className='single-unique-product'>
-                <img className='img-fluid' src='img/u4.jpg' alt='' />
-                <div className='desc'>
-                  <h4>Apple Watch White</h4>
-                  <h6>£399.00</h6>
-                  <a className='text-uppercase primary-btn' href='#'>
-                    Pre Order
-                  </a>
-                </div>
-              </div>
-            </div>
+            <ProductsList products={productNodes} />
           </div>
         </div>
       </section>
@@ -619,92 +634,6 @@ const IndexPage = props => {
           </div>
         </div>
       </section>
-
-      <footer className='footer-area section-gap'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-lg-5 col-md-6 col-sm-6'>
-              <div className='single-footer-widget'>
-                <h6>About Us</h6>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                  incididunt ut labore dolore magna aliqua.
-                </p>
-                <p className='footer-text'>
-                  Copyright &copy;{new Date().getFullYear()} All rights reserved | This template is
-                  made with <i className='fa fa-heart-o' aria-hidden /> by{' '}
-                  <a href='https://colorlib.com' target='_blank'>
-                    Colorlib
-                  </a>
-                </p>
-              </div>
-            </div>
-            <div className='col-lg-5  col-md-6 col-sm-6'>
-              <div className='single-footer-widget'>
-                <h6>Newsletter</h6>
-                <p>Stay update with our latest</p>
-                <div className='' id='mc_embed_signup'>
-                  <form
-                    target='_blank'
-                    noValidate
-                    action='https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01'
-                    method='get'
-                    className='form-inline'
-                  >
-                    <input
-                      className='form-control'
-                      name='EMAIL'
-                      placeholder='Enter Email'
-                      onFocus="this.placeholder = ''"
-                      onBlur="this.placeholder = 'Enter Email '"
-                      required=''
-                      type='email'
-                    />
-                    <button className='click-btn btn btn-default'>
-                      <i className='fa fa-long-arrow-right' aria-hidden />
-                    </button>
-                    <div
-                      style={{
-                        position: 'absolute',
-                        left: ' -5000px'
-                      }}
-                    >
-                      <input
-                        name='b_36c4fd991d266f23781ded980_aefe40901a'
-                        tabIndex='-1'
-                        value=''
-                        type='text'
-                      />
-                    </div>
-
-                    <div className='info' />
-                  </form>
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-2 col-md-6 col-sm-6 social-widget'>
-              <div className='single-footer-widget'>
-                <h6>Follow Us</h6>
-                <p>Let us be social</p>
-                <div className='footer-social d-flex align-items-center'>
-                  <a href='#'>
-                    <i className='fa fa-facebook' />
-                  </a>
-                  <a href='#'>
-                    <i className='fa fa-twitter' />
-                  </a>
-                  <a href='#'>
-                    <i className='fa fa-dribbble' />
-                  </a>
-                  <a href='#'>
-                    <i className='fa fa-behance' />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
     </Layout>
   )
 }
