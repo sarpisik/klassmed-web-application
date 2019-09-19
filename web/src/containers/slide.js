@@ -11,6 +11,7 @@ const SlideContainer = ({ images }) => {
       showControls
       showIndicators
       className='z-depth-1'
+      slide
     >
       <MDBCarouselInner>{images.map(Slide)}</MDBCarouselInner>
     </MDBCarousel>

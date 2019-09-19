@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs, mapImagesToFluid } from '../lib/helpers'
 import BlogPostPreviewGrid from '../components/blog-post-preview-grid'
 import GraphQLErrorList from '../components/graphql-error-list'
@@ -8,6 +7,7 @@ import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import SlideContainer from '../containers/slide'
+import ProductContainer from '../containers/product'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -18,6 +18,20 @@ export const query = graphql`
     }
 
     slides: allSanitySlide {
+      edges {
+        node {
+          mainImage {
+            asset {
+              fluid {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
+        }
+      }
+    }
+
+    products: allSanityProduct(limit: 1, sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
           mainImage {
@@ -123,7 +137,7 @@ const IndexPage = props => {
     ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
     : []
   const slideImages = (data || {}).slides ? mapImagesToFluid(data.slides) : []
-  console.log(data.slides)
+  const productImage = (data || {}).products ? mapImagesToFluid(data.products) : []
 
   if (!site) {
     throw new Error(
@@ -189,65 +203,7 @@ const IndexPage = props => {
       <SlideContainer images={slideImages} />
 
       <section className='top-course-area section-gap'>
-        <div className='container'>
-          <div className='row d-flex justify-content-center'>
-            <div className='menu-content pb-60 col-lg-10'>
-              <div className='title text-center'>
-                <h1 className='mb-10'>Top Courses That are open for Students</h1>
-                <p>Who are in extremely love with eco friendly system.</p>
-              </div>
-            </div>
-          </div>
-          <div className='row justify-content-center align-items-center'>
-            <div className='col-lg-3 course-left'>
-              <div className='single-course'>
-                <span className='lnr lnr-rocket' />
-                <a href='#'>
-                  <h4>High Performance</h4>
-                </a>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisic ing elit, seddo eiusmod tempor
-                  incid.idunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
-              <div className='single-course'>
-                <span className='lnr lnr-cog' />
-                <a href='#'>
-                  <h4>High Performance</h4>
-                </a>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisic ing elit, seddo eiusmod tempor
-                  incid.idunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
-            </div>
-            <div className='col-lg-6 course-middle'>
-              <img className='img-fluid mx-auto d-block' src='img/c1.png' alt='' />
-            </div>
-            <div className='col-lg-3 course-right'>
-              <div className='single-course'>
-                <span className='lnr lnr-apartment' />
-                <a href='#'>
-                  <h4>High Performance</h4>
-                </a>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisic ing elit, seddo eiusmod tempor
-                  incid.idunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
-              <div className='single-course'>
-                <span className='lnr lnr-phone' />
-                <a href='#'>
-                  <h4>High Performance</h4>
-                </a>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisic ing elit, seddo eiusmod tempor
-                  incid.idunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ProductContainer products={productImage} />
       </section>
 
       <section className='home-about-area'>
