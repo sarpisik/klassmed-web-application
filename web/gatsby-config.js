@@ -5,6 +5,12 @@ const {
 
 module.exports = {
   plugins: [
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'tr'
+      }
+    },
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     {

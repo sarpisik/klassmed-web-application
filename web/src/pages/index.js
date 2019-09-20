@@ -178,10 +178,7 @@ const IndexPage = props => {
               <Img className='img-fluid' fluid={data.otherProduct.childImageSharp.fluid} />
             </div>
             <div className='col-lg-6 no-padding home-about-right'>
-              <h1>
-                Globally Connected <br />
-                by Large Network
-              </h1>
+              <h1>Sadece Lazer Değil...</h1>
               <p>
                 <span>We are here to listen from you deliver exellence</span>
               </p>
