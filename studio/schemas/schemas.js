@@ -18,6 +18,7 @@ import postAuthor from './postAuthor'
 import project from './project'
 import product from './product'
 import projectMember from './projectMember'
+import service from './service'
 import siteSettings from './siteSettings'
 import slideshow from './slideshow'
 import slide from './slide'
@@ -44,6 +45,7 @@ export default createSchema({
     project,
     product,
     projectMember,
+    service,
     siteSettings,
     slideshow,
     slide

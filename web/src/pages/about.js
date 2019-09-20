@@ -1,42 +1,23 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import BlockContent from '../components/block-content'
-import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import PeopleGrid from '../components/people-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
-
-import { responsiveTitle1 } from '../components/typography.module.css'
+import { MDBContainer, MDBRow, MDBCol } from 'mdbreact'
+import about from '../images/about.png'
 
 export const query = graphql`
   query AboutPageQuery {
-    page: sanityPage(_id: { regex: "/(drafts.|)about/" }) {
+    page: sanityPage(title: { eq: "Kurumsal" }) {
       id
       title
       _rawBody
     }
-    people: allSanityPerson {
-      edges {
-        node {
-          id
-          image {
-            asset {
-              _id
-            }
-          }
-          name
-          _rawBio
-        }
-      }
-    }
   }
 `
 
-const AboutPage = props => {
-  const { data, errors } = props
-
+const AboutPage = ({ data, errors }) => {
   if (errors) {
     return (
       <Layout>
@@ -46,8 +27,6 @@ const AboutPage = props => {
   }
 
   const page = data && data.page
-  const personNodes =
-    data && data.people && mapEdgesToNodes(data.people).filter(filterOutDocsWithoutSlugs)
 
   if (!page) {
     throw new Error(
@@ -58,11 +37,18 @@ const AboutPage = props => {
   return (
     <Layout>
       <SEO title={page.title} />
-      <Container>
-        <h1 className={responsiveTitle1}>{page.title}</h1>
-        <BlockContent blocks={page._rawBody || []} />
-        {personNodes && personNodes.length > 0 && <PeopleGrid items={personNodes} title='People' />}
-      </Container>
+      <MDBContainer fluid>
+        <MDBRow className='service-landing text-white justify-content-center align-items-center py-3'>
+          <MDBCol className='d-none d-xl-block' xl={4}>
+            <img src={about} className='img-fluid' alt='kurumsal' />
+          </MDBCol>
+          <MDBCol sm={6} xl={4}>
+            <h1 className='text-uppercase'>{page.title}</h1>
+
+            <BlockContent blocks={page._rawBody || []} />
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
     </Layout>
   )
 }

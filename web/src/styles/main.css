@@ -130,7 +130,6 @@ h4,
 h5,
 h6 {
   font-family: 'Poppins', sans-serif;
-  color: #222222;
   line-height: 1.2em !important;
   margin-bottom: 0;
   margin-top: 0;
@@ -781,6 +780,21 @@ th {
 
 .section-bg {
   background: #f9fafc;
+}
+
+/* Custom */
+.service-landing {
+  background: url(../images/teknik_zemin.png) no-repeat scroll 50% 50%;
+  background-size: cover;
+}
+.service-title {
+  border-bottom-right-radius: 2rem;
+}
+.odd {
+  background: url(../images/serit_lacivert.png) no-repeat scroll 0% 50%;
+}
+.even {
+  background: url(../images/serit_turuncu.png) no-repeat scroll 0% 50%;
 }
 
 @media (max-width: 767px) {

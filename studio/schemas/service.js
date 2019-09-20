@@ -1,6 +1,6 @@
 export default {
-  name: 'slide',
-  title: 'Slides',
+  name: 'service',
+  title: 'Services',
   type: 'document',
   fields: [
     {
@@ -9,24 +9,22 @@ export default {
       type: 'string'
     },
     {
-      name: 'mainImage',
-      title: 'Main image',
-      type: 'mainImage'
+      title: 'Description',
+      name: 'description',
+      type: 'text'
     }
   ],
   preview: {
     select: {
       title: 'title',
-      publishedAt: 'publishedAt',
-      image: 'mainImage'
+      publishedAt: 'publishedAt'
     },
-    prepare ({ title = 'No title', publishedAt, image }) {
+    prepare ({ title = 'No title', publishedAt }) {
       return {
         title,
         subtitle: publishedAt
           ? new Date(publishedAt).toLocaleDateString()
-          : 'Missing publishing date',
-        media: image
+          : 'Missing publishing date'
       }
     }
   }

@@ -17,9 +17,9 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => {
         <div className='container'>
           <div className='row align-items-center justify-content-between d-flex'>
             <div id='logo'>
-              <a href='index.html'>
+              <Link to='/'>
                 <img src={logo} alt='' title='' />
-              </a>
+              </Link>
             </div>
             <nav id='nav-menu-container'>
               <ul className='nav-menu'>

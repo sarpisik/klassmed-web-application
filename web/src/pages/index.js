@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import {
   mapEdgesToNodes,
@@ -82,77 +82,6 @@ export const query = graphql`
         }
       }
     }
-
-    projects: allSanityProject(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
-      edges {
-        node {
-          id
-          mainImage {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
-            alt
-          }
-          title
-          _rawExcerpt
-          slug {
-            current
-          }
-        }
-      }
-    }
-
-    posts: allSanityPost(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
-      edges {
-        node {
-          id
-          publishedAt
-          mainImage {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
-            alt
-          }
-          title
-          _rawExcerpt
-          slug {
-            current
-          }
-        }
-      }
-    }
   }
 `
 
@@ -168,12 +97,6 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site
-  const postNodes = (data || {}).posts
-    ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
-    : []
-  const projectNodes = (data || {}).projects
-    ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
-    : []
   const slideImages = (data || {}).slides ? mapImagesToFluid(data.slides) : []
   const landingProductImage = (data || {}).landingProduct
     ? mapImagesToFluid(data.landingProduct)
@@ -189,21 +112,6 @@ const IndexPage = props => {
   return (
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      {/* <h1 hidden>Welcome to {site.title}</h1>
-        {projectNodes && (
-          <ProjectPreviewGrid
-            title='Latest projects'
-            nodes={projectNodes}
-            browseMoreHref='/projects/'
-          />
-        )}
-        {postNodes && (
-          <BlogPostPreviewGrid
-            title='Latest blog posts'
-            nodes={postNodes}
-            browseMoreHref='/blog/'
-          />
-        )} */}
       <SlideContainer images={slideImages} />
 
       <section className='top-course-area section-gap'>
@@ -385,8 +293,10 @@ const IndexPage = props => {
           <div className='row d-flex justify-content-center'>
             <div className='menu-content pb-60 col-lg-10'>
               <div className='title text-center'>
-                <h1 className='mb-10 text-white'>Some Features that Made us Unique</h1>
-                <p>Who are in extremely love with eco friendly system.</p>
+                <h1 className='mb-10 text-white'>SON ÜRÜNLERİMİZ</h1>
+                <Link to='/products'>
+                  <p>Daha fazlasını göster</p>
+                </Link>
               </div>
             </div>
           </div>
