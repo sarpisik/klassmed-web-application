@@ -2817,12 +2817,6 @@ h6 {
   }
 }
 
-@media (max-width: 800px) {
-  .social-widget {
-    margin-top: 30px;
-  }
-}
-
 .footer-text {
   padding-top: 20px;
 }
