@@ -8,6 +8,7 @@ import Layout from '../containers/layout'
 import SlideContainer from '../containers/slide'
 import ProductContainer from '../containers/product'
 import ProductsList from '../containers/productsList'
+import Accordion from '../components/accordion'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -298,240 +299,18 @@ const IndexPage = props => {
         </div>
       </section>
 
-      <section className='review-area section-gap' id='review'>
-        <div className='container'>
-          <div className='row d-flex justify-content-center'>
-            <div className='menu-content pb-60 col-lg-10'>
-              <div className='title text-center'>
-                <h1 className='mb-10'>Some Features that Made us Unique</h1>
-                <p>Who are in extremely love with eco friendly system.</p>
-              </div>
-            </div>
-          </div>
-          <div className='row'>
-            <div className='col-lg-4 col-md-6'>
-              <div className='single-review'>
-                <h4>Cody Hines</h4>
-                <p>
-                  Accessories Here you can find the best computer accessory for your laptop,
-                  monitor, printer, scanner, speaker.
-                </p>
-                <div className='star'>
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star' />
-                  <span className='fa fa-star' />
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-4 col-md-6'>
-              <div className='single-review'>
-                <h4>Chad Herrera</h4>
-                <p>
-                  Accessories Here you can find the best computer accessory for your laptop,
-                  monitor, printer, scanner, speaker.
-                </p>
-                <div className='star'>
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star' />
-                  <span className='fa fa-star' />
-                  <span className='fa fa-star' />
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-4 col-md-6'>
-              <div className='single-review'>
-                <h4>Andre Gonzalez</h4>
-                <p>
-                  Accessories Here you can find the best computer accessory for your laptop,
-                  monitor, printer, scanner, speaker.
-                </p>
-                <div className='star'>
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star' />
-                  <span className='fa fa-star' />
-                  <span className='fa fa-star' />
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-4 col-md-6'>
-              <div className='single-review'>
-                <h4>Jon Banks</h4>
-                <p>
-                  Accessories Here you can find the best computer accessory for your laptop,
-                  monitor, printer, scanner, speaker.
-                </p>
-                <div className='star'>
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star' />
-                  <span className='fa fa-star' />
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-4 col-md-6'>
-              <div className='single-review'>
-                <h4>Landon Houston</h4>
-                <p>
-                  Accessories Here you can find the best computer accessory for your laptop,
-                  monitor, printer, scanner, speaker.
-                </p>
-                <div className='star'>
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star' />
-                </div>
-              </div>
-            </div>
-            <div className='col-lg-4 col-md-6'>
-              <div className='single-review'>
-                <h4>Nelle Wade</h4>
-                <p>
-                  Accessories Here you can find the best computer accessory for your laptop,
-                  monitor, printer, scanner, speaker.
-                </p>
-                <div className='star'>
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star checked' />
-                  <span className='fa fa-star' />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className='faq-area section-gap' id='faq'>
         <div className='container'>
           <div className='row d-flex justify-content-center'>
             <div className='menu-content pb-60 col-lg-10'>
               <div className='title text-center'>
-                <h1 className='mb-10'>Frequently Asked Questions</h1>
-                <p>Who are in extremely love with eco friendly system.</p>
+                <h1 className='mb-10'>Sıkça Sorulan Sorular</h1>
               </div>
             </div>
           </div>
           <div className='row justify-content-start'>
             <div className='col-lg-6 faq-left'>
-              <div id='accordion'>
-                <div className='card'>
-                  <div className='card-header' id='headingOne'>
-                    <h5 className='mb-0'>
-                      <button
-                        className='btn btn-link'
-                        data-toggle='collapse'
-                        data-target='#collapseOne'
-                        aria-expanded
-                        aria-controls='collapseOne'
-                      >
-                        Are your Templates responsive?
-                      </button>
-                    </h5>
-                  </div>
-
-                  <div
-                    id='collapseOne'
-                    className='collapse show'
-                    aria-labelledby='headingOne'
-                    data-parent='#accordion'
-                  >
-                    <div className='card-body'>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris.
-                    </div>
-                  </div>
-                </div>
-                <div className='card'>
-                  <div className='card-header' id='headingTwo'>
-                    <h5 className='mb-0'>
-                      <button
-                        className='btn btn-link collapsed'
-                        data-toggle='collapse'
-                        data-target='#collapseTwo'
-                        aria-expanded='false'
-                        aria-controls='collapseTwo'
-                      >
-                        Does it have all the plugin as mentioned?
-                      </button>
-                    </h5>
-                  </div>
-                  <div
-                    id='collapseTwo'
-                    className='collapse'
-                    aria-labelledby='headingTwo'
-                    data-parent='#accordion'
-                  >
-                    <div className='card-body'>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris.
-                    </div>
-                  </div>
-                </div>
-                <div className='card'>
-                  <div className='card-header' id='headingThree'>
-                    <h5 className='mb-0'>
-                      <button
-                        className='btn btn-link collapsed'
-                        data-toggle='collapse'
-                        data-target='#collapseThree'
-                        aria-expanded='false'
-                        aria-controls='collapseThree'
-                      >
-                        Can i use the these theme for my client?
-                      </button>
-                    </h5>
-                  </div>
-                  <div
-                    id='collapseThree'
-                    className='collapse'
-                    aria-labelledby='headingThree'
-                    data-parent='#accordion'
-                  >
-                    <div className='card-body'>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris.
-                    </div>
-                  </div>
-                </div>
-                <div className='card'>
-                  <div className='card-header' id='headingThree'>
-                    <h5 className='mb-0'>
-                      <button
-                        className='btn btn-link collapsed'
-                        data-toggle='collapse'
-                        data-target='#collapseFour'
-                        aria-expanded='false'
-                        aria-controls='collapseThree'
-                      >
-                        Are your Templates responsive?
-                      </button>
-                    </h5>
-                  </div>
-                  <div
-                    id='collapseFour'
-                    className='collapse'
-                    aria-labelledby='headingThree'
-                    data-parent='#accordion'
-                  >
-                    <div className='card-body'>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris.
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <Accordion />
             </div>
           </div>
         </div>

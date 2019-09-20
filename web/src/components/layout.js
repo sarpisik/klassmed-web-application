@@ -102,7 +102,9 @@ const Layout = ({ children, companyInfo, onHideNav, onShowNav, showNav, siteTitl
         </div>
       </div>
       <a href='https://sarpisik.com'>
-        <p className='footer-text text-center text-white m-0 font-weight-bold'>Made By SARP IŞIK</p>
+        <p className='sarp-isik footer-text text-center p-2 m-0 font-weight-bold'>
+          Made By SARP IŞIK
+        </p>
       </a>
     </footer>
 

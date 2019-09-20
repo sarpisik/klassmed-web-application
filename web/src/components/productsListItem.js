@@ -20,7 +20,10 @@ const productsListItem = ({ image, slug, title }) => {
         />
         <div className='desc'>
           <h4>{title}</h4>
-          <Link className='text-uppercase primary-btn' to={'/products/' + slug}>
+          <Link
+            className='text-uppercase primary-btn blue-gradient product-item'
+            to={'/products/' + slug}
+          >
             İncele
           </Link>
         </div>

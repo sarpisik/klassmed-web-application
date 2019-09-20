@@ -783,6 +783,9 @@ th {
 }
 
 /* Custom */
+#accordion .btn-default {
+  background-color: transparent !important;
+}
 .service-landing {
   background: url(../images/teknik_zemin.png) no-repeat scroll 50% 50%;
   background-size: cover;
@@ -795,6 +798,19 @@ th {
 }
 .even {
   background: url(../images/serit_turuncu.png) no-repeat scroll 0% 50%;
+}
+.product-item,
+.sarp-isik {
+  transition: 0.3s ease-in-out;
+  transition-property: background-color, color;
+}
+.sarp-isik {
+  color: #fff;
+}
+.product-item:hover,
+.sarp-isik:hover {
+  color: #04091e !important;
+  background: #fff !important;
 }
 
 @media (max-width: 767px) {
