@@ -18,7 +18,8 @@
     "postinstall": "lerna bootstrap",
     "sanity-deploy": "lerna run sanity-deploy",
     "start": "lerna run empty-cache && lerna run start --parallel",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy-server": "npm run graphql-deploy && npm run sanity-deploy && npm run now-deploy"
   },
   "devDependencies": {
     "lerna": "^3.14.1",
