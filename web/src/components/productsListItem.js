@@ -4,8 +4,8 @@ import { Link } from 'gatsby'
 
 const productsListItem = ({ image, slug, title }) => {
   return (
-    <div className='col-lg-3 col-md-6'>
-      <div className='single-unique-product'>
+    <div key={slug} className='col-lg-3 col-md-6'>
+      <div className='single-unique-product shadow-lg'>
         <Img
           className='img-fluid mx-auto d-block'
           imgStyle={{

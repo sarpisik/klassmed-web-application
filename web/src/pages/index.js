@@ -1,12 +1,7 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
-import {
-  mapEdgesToNodes,
-  filterOutDocsWithoutSlugs,
-  filterOutProducts,
-  mapImagesToFluid
-} from '../lib/helpers'
+import { filterOutProducts, mapImagesToFluid } from '../lib/helpers'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'

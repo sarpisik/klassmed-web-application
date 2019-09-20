@@ -5,7 +5,7 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import { MDBContainer, MDBRow, MDBCol } from 'mdbreact'
-import about from '../images/about.png'
+import Img from 'gatsby-image'
 
 export const query = graphql`
   query AboutPageQuery {
@@ -13,6 +13,14 @@ export const query = graphql`
       id
       title
       _rawBody
+    }
+
+    image: file(relativePath: { eq: "about.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
+        }
+      }
     }
   }
 `
@@ -40,7 +48,10 @@ const AboutPage = ({ data, errors }) => {
       <MDBContainer fluid>
         <MDBRow className='service-landing text-white justify-content-center align-items-center py-3'>
           <MDBCol className='d-none d-xl-block' xl={4}>
-            <img src={about} className='img-fluid' alt='kurumsal' />
+            <Img
+              className='img-fluid rounded-lg shadow-lg'
+              fluid={data.image.childImageSharp.fluid}
+            />
           </MDBCol>
           <MDBCol sm={6} xl={4}>
             <h1 className='text-uppercase'>{page.title}</h1>

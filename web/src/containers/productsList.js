@@ -1,4 +1,3 @@
-import React from 'react'
 import productsListItem from '../components/productsListItem'
 
 const ProductsList = ({ products }) => {

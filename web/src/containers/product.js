@@ -1,4 +1,3 @@
-import React from 'react'
 import LandingProduct from '../components/landingProduct'
 
 const LandingProductContainer = ({ products }) => {

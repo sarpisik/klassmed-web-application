@@ -30,18 +30,12 @@ const Layout = ({ children, companyInfo, onHideNav, onShowNav, showNav, siteTitl
         <div className='row'>
           <div className='col-lg-5 col-md-6 col-sm-6'>
             <div className='single-footer-widget'>
-              <h6>About Us</h6>
+              <h6>Hakkımızda</h6>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                incididunt ut labore dolore magna aliqua.
+                Klassmed Medikal olarak, 2011 yılında ithalat ürünleri ile başlayan ticari
+                hayatımıza 2012 yılından itibaren kendi ürünlerimiz üreterek devam etmekteyiz.
               </p>
-              <p className='footer-text'>
-                Copyright &copy;{new Date().getFullYear()} All rights reserved | This template is
-                made with <i className='fa fa-heart-o' aria-hidden /> by{' '}
-                <a href='https://colorlib.com' target='_blank'>
-                  Colorlib
-                </a>
-              </p>
+              <p className='footer-text'>&copy;{new Date().getFullYear()} Klassmed </p>
             </div>
           </div>
           <div className='col-lg-5  col-md-6 col-sm-6'>
@@ -60,9 +54,7 @@ const Layout = ({ children, companyInfo, onHideNav, onShowNav, showNav, siteTitl
                     className='form-control'
                     name='EMAIL'
                     placeholder='Enter Email'
-                    onFocus="this.placeholder = ''"
-                    onBlur="this.placeholder = 'Enter Email '"
-                    required=''
+                    required
                     type='email'
                   />
                   <button className='click-btn btn btn-default'>
@@ -109,6 +101,9 @@ const Layout = ({ children, companyInfo, onHideNav, onShowNav, showNav, siteTitl
           </div>
         </div>
       </div>
+      <a href='https://sarpisik.com'>
+        <p className='footer-text text-center text-white m-0 font-weight-bold'>Made By SARP IŞIK</p>
+      </a>
     </footer>
 
     {/* <div className={styles.content}>{children}</div> */}

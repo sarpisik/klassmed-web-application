@@ -6,8 +6,7 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import { MDBContainer, MDBRow, MDBCol } from 'mdbreact'
-import teknikDestek from '../images/teknik_destek.png'
-import teknikDunya from '../images/teknik_dunya.png'
+import Img from 'gatsby-image'
 
 export const query = graphql`
   query ServicesPageQuery {
@@ -15,6 +14,22 @@ export const query = graphql`
       id
       title
       _rawBody
+    }
+
+    image_teknik_dunya: file(relativePath: { eq: "teknik_dunya.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+
+    image_teknik_destek: file(relativePath: { eq: "teknik_destek.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
+          ...GatsbyImageSharpFluid
+        }
+      }
     }
   }
 `
@@ -41,12 +56,11 @@ const ServicesPage = ({ data, errors }) => {
       <SEO title={page.title} />
       <MDBContainer fluid>
         <MDBRow className='service-landing text-white justify-content-center'>
-          {/* <h1 className='text-uppercase'>{page.title}</h1> */}
-          <MDBCol sm={4}>
-            <img src={teknikDunya} className='img-fluid' alt='teknik dunya' />
+          <MDBCol sm={12} md={8} lg={6} xl={4}>
+            <Img className='img-fluid' fluid={data.image_teknik_dunya.childImageSharp.fluid} />
           </MDBCol>
-          <MDBCol sm={4}>
-            <img src={teknikDestek} className='img-fluid' alt='teknik destek' />
+          <MDBCol sm={12} md={8} lg={6} xl={4}>
+            <Img className='img-fluid' fluid={data.image_teknik_destek.childImageSharp.fluid} />
             <BlockContent blocks={page._rawBody || []} />
           </MDBCol>
         </MDBRow>
@@ -123,7 +137,9 @@ const ServicesPage = ({ data, errors }) => {
             </p>
           </MDBCol>
           <MDBCol sm={6}>
-            <h4 className='service-title odd p-2 text-white'>SOĞUK HAVA ÜFLEME IPL CİHAZ TAMİRİ</h4>
+            <h4 className='service-title even p-2 text-white'>
+              SOĞUK HAVA ÜFLEME IPL CİHAZ TAMİRİ
+            </h4>
             <p>
               Tüm hava üemeli IPL cihazların başlık temini, power kart tamiri, ekran tamiri, lamba
               değişimi, kontur yükleme, şifre kaldırma, soğutma ünitesi tamiri uzman ekibimiz
