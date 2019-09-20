@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './header'
 
-const Layout = ({ children, companyInfo, onHideNav, onShowNav, showNav, siteTitle }) => (
+const Layout = ({ children, siteTitle }) => (
   <>
     <Header siteTitle={siteTitle} />
     <div style={{ marginTop: '58px' }}>{children}</div>
