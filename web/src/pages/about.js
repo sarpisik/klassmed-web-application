@@ -39,7 +39,7 @@ const AboutPage = ({ data, errors }) => {
     <Fragment>
       <SEO title={page.title} />
       <MDBContainer fluid>
-        <MDBRow className='service-landing text-white justify-content-center align-items-center py-3'>
+        <MDBRow className='landing-background-cover text-white justify-content-center align-items-center'>
           <MDBCol className='d-none d-xl-block' xl={4}>
             <Img
               className='img-fluid rounded-lg shadow-lg'

@@ -8,3 +8,7 @@
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import 'bootstrap-css-only/css/bootstrap.min.css'
 import 'mdbreact/dist/css/mdb.css'
+import './src/styles/font-awesome.min.css'
+import './src/styles/linearicons.css'
+import './src/styles/main.css'
+import './src/styles/layout.css'

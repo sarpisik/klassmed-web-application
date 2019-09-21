@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import { Link } from 'gatsby'
 import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavbarToggler, MDBCollapse } from 'mdbreact'
-import logo from '../images/logo.png'
+import logo from '../images/logo.svg'
 
 const bgColor = { backgroundColor: '#04091e' }
 const links = [
@@ -18,7 +18,7 @@ const Header = ({ location: { pathname } }) => {
   return (
     <Fragment>
       <MDBNavbar style={bgColor} dark expand='md' scrolling fixed='top'>
-        <Link className='nav-link w-25' to='/'>
+        <Link className='nav-link logo' to='/'>
           <img src={logo} alt='klassmed logo' title='Klassmed Logo' />
         </Link>
         <MDBNavbarToggler onClick={() => setCollapse(toggleNavList)} />

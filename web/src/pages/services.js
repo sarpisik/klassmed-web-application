@@ -48,7 +48,7 @@ const ServicesPage = ({ data, errors }) => {
     <Fragment>
       <SEO title={page.title} />
       <MDBContainer fluid>
-        <MDBRow className='service-landing text-white justify-content-center'>
+        <MDBRow className='landing-background-cover text-white justify-content-center'>
           <MDBCol sm={12} md={8} lg={6} xl={4}>
             <Img className='img-fluid' fluid={data.image_teknik_dunya.childImageSharp.fluid} />
           </MDBCol>

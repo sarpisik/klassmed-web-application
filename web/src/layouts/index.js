@@ -4,10 +4,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import Transition from '../components/transition'
 import SEO from '../components/seo'
 import Header from '../components/header'
-import '../styles/font-awesome.min.css'
-import '../styles/linearicons.css'
-import '../styles/main.css'
-import '../styles/layout.css'
 
 const Layout = ({ children, location }) => (
   <StaticQuery

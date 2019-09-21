@@ -783,12 +783,17 @@ th {
 }
 
 /* Custom */
+.logo {
+  width: 50%;
+  max-width: 250px;
+}
 #accordion .btn-default {
   background-color: transparent !important;
 }
-.service-landing {
+.landing-background-cover {
   background: url(../images/teknik_zemin.png) no-repeat scroll 50% 50%;
   background-size: cover;
+  padding: 5rem 0;
 }
 .service-title {
   border-bottom-right-radius: 2rem;
