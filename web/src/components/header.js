@@ -8,7 +8,8 @@ const links = [
   { name: 'anasayfa', path: '/' },
   { name: 'kurumsal', path: '/about' },
   { name: 'ürünlerimiz', path: '/products' },
-  { name: 'teknik destek', path: '/services' }
+  { name: 'teknik destek', path: '/services' },
+  { name: 'S.S.S.', path: '/faq' }
 ]
 const toggleNavList = collapse => !collapse
 

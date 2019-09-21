@@ -59,17 +59,11 @@ const Layout = ({ children, location }) => (
                   <div className='single-footer-widget w-100'>
                     <h6>Bizi Takip Edin</h6>
                     <div className='footer-social d-flex align-items-center'>
-                      <a href='#'>
+                      <a href='https://www.facebook.com/Klassmedlazer-1136468556398300/?ref=br_rs'>
                         <i className='fa fa-3x fa-facebook' />
                       </a>
-                      <a href='#'>
-                        <i className='fa fa-3x fa-twitter' />
-                      </a>
-                      <a href='#'>
-                        <i className='fa fa-3x fa-dribbble' />
-                      </a>
-                      <a href='#'>
-                        <i className='fa fa-3x fa-behance' />
+                      <a href='https://www.instagram.com/klassmedlazerepilasyon/'>
+                        <i className='fab fa-3x fa-instagram' />
                       </a>
                     </div>
                   </div>

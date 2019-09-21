@@ -1,5 +1,3 @@
-import { format } from 'date-fns'
-
 export function isOdd (num) {
   return num % 2 == 0
 }
@@ -35,6 +33,16 @@ export function filterOutServices (data) {
     description: mapNodeToAttribute(node, 'description'),
     id: mapNodeToAttribute(node, 'id')
   }))
+}
+
+export function filterOutQuestions (data, limit) {
+  return mapEdgesToNodes(data)
+    .slice(0, limit)
+    .map(node => ({
+      question: mapNodeToAttribute(node, 'question'),
+      answer: mapNodeToAttribute(node, 'answer'),
+      id: mapNodeToAttribute(node, 'id')
+    }))
 }
 
 export function buildImageObj (source) {

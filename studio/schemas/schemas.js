@@ -9,15 +9,11 @@ import blockContent from './blockContent'
 import blockText from './blockText'
 import category from './category'
 import companyInfo from './companyInfo'
+import faq from './faq'
 import figure from './figure'
 import mainImage from './mainImage'
 import page from './page'
-import person from './person'
-import post from './post'
-import postAuthor from './postAuthor'
-import project from './project'
 import product from './product'
-import projectMember from './projectMember'
 import service from './service'
 import siteSettings from './siteSettings'
 import slideshow from './slideshow'
@@ -36,15 +32,11 @@ export default createSchema({
     blockText,
     category,
     companyInfo,
+    faq,
     figure,
     mainImage,
     page,
-    person,
-    post,
-    postAuthor,
-    project,
     product,
-    projectMember,
     service,
     siteSettings,
     slideshow,

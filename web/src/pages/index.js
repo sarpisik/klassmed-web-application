@@ -94,8 +94,7 @@ const IndexPage = props => {
           <div className='row d-flex justify-content-center'>
             <div className='menu-content pb-60 col-lg-10'>
               <div className='title text-center'>
-                <h1 className='mb-10'>Top Courses That are open for Students</h1>
-                <p>Who are in extremely love with eco friendly system.</p>
+                <h1 className='mb-10'>HİZMETLERİMİZ</h1>
               </div>
             </div>
           </div>
@@ -103,22 +102,19 @@ const IndexPage = props => {
             <div className='col-lg-3 course-left'>
               <div className='single-course'>
                 <span className='lnr lnr-rocket' />
-                <a href='#'>
-                  <h4>High Performance</h4>
-                </a>
+                <h4>Lazer Ekipmanları</h4>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisic ing elit, seddo eiusmod tempor
-                  incid.idunt ut labore et dolore magna aliqua.
+                  Klassmed Lazer, uzmanlık alanı olan "Lazer Ekipmanları" üretiminde yüksek atım
+                  kapasitesi ve kaliteli sonuçlar doğuran (IPL) cihazlarını müşterilerinin
+                  kullanımına sunmuştur.
                 </p>
               </div>
               <div className='single-course'>
-                <span className='lnr lnr-cog' />
-                <a href='#'>
-                  <h4>High Performance</h4>
-                </a>
+                <span className='lnr lnr-highlight' />
+                <h4>ND Yag - Dövme Silme</h4>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisic ing elit, seddo eiusmod tempor
-                  incid.idunt ut labore et dolore magna aliqua.
+                  Klassmed Lazer, üretmiş olduğu IPL cihazlar ile sektörde kendini ispatlamış ve ND
+                  Yağ teknolojisini de müşterilerinin kullanımına sunmuştur.
                 </p>
               </div>
             </div>
@@ -127,23 +123,22 @@ const IndexPage = props => {
             </div>
             <div className='col-lg-3 course-right'>
               <div className='single-course'>
-                <span className='lnr lnr-apartment' />
-                <a href='#'>
-                  <h4>High Performance</h4>
-                </a>
+                <span className='lnr lnr-cog' />
+                <h4>Teknik Servis</h4>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisic ing elit, seddo eiusmod tempor
-                  incid.idunt ut labore et dolore magna aliqua.
+                  İster Klassmed müşterisi olun ister başka bir cihazınız olsun, cihazlarınızın
+                  bakımları ve arıza vermiş olan Lazer epilasyon cihazlarınız için Klassmed Lazer
+                  teknik ekibi sizlerinizin her daim hizmetinizdedir.
                 </p>
               </div>
               <div className='single-course'>
-                <span className='lnr lnr-phone' />
-                <a href='#'>
-                  <h4>High Performance</h4>
-                </a>
+                <span className='lnr lnr-magic-wand' />
+                <h4>Orjinal Başlık</h4>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisic ing elit, seddo eiusmod tempor
-                  incid.idunt ut labore et dolore magna aliqua.
+                  Klassmed Teknoloji tarafından ince uğraşlar ile piyasaya sunulmuş bir IPL başlık
+                  teknolojisidir. Tamamen organik Safir Kristal ile ürettiğimiz bu başlıklar ile
+                  iletkenlik seviyesini geliştirerek maksimum sonuçlar elde edilmesine olanak
+                  sağlıyor.
                 </p>
               </div>
             </div>
@@ -160,101 +155,12 @@ const IndexPage = props => {
             <div className='col-lg-6 no-padding home-about-right'>
               <h1>Sadece Lazer Değil...</h1>
               <p>
-                <span>We are here to listen from you deliver exellence</span>
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim. Lorem ipsum dolor sit
-                amet, consectetur adipisicing elit, sed do eiusmod tempor.
+                Güzellik salonu veya kliniklerinin ihtiyaç duyduğu bütün cihazları bizlerden temin
+                etmeniz mümkündür.
               </p>
               <a className='text-uppercase primary-btn' href='#'>
                 get details
               </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className='service-area section-gap' id='service'>
-        <div className='container'>
-          <div className='row d-flex justify-content-center'>
-            <div className='col-md-8 pb-40 header-text'>
-              <h1>Some Features that Made us Unique</h1>
-              <p>Who are in extremely love with eco friendly system.</p>
-            </div>
-          </div>
-          <div className='row'>
-            <div className='col-lg-4 col-md-6'>
-              <div className='single-service'>
-                <h4>
-                  <span className='lnr lnr-user' />
-                  Expert Technicians
-                </h4>
-                <p>
-                  Usage of the Internet is becoming more common due to rapid advancement of
-                  technology and power.
-                </p>
-              </div>
-            </div>
-            <div className='col-lg-4 col-md-6'>
-              <div className='single-service'>
-                <h4>
-                  <span className='lnr lnr-license' />
-                  Professional Service
-                </h4>
-                <p>
-                  Usage of the Internet is becoming more common due to rapid advancement of
-                  technology and power.
-                </p>
-              </div>
-            </div>
-            <div className='col-lg-4 col-md-6'>
-              <div className='single-service'>
-                <h4>
-                  <span className='lnr lnr-phone' />
-                  Great Support
-                </h4>
-                <p>
-                  Usage of the Internet is becoming more common due to rapid advancement of
-                  technology and power.
-                </p>
-              </div>
-            </div>
-            <div className='col-lg-4 col-md-6'>
-              <div className='single-service'>
-                <h4>
-                  <span className='lnr lnr-rocket' />
-                  Technical Skills
-                </h4>
-                <p>
-                  Usage of the Internet is becoming more common due to rapid advancement of
-                  technology and power.
-                </p>
-              </div>
-            </div>
-            <div className='col-lg-4 col-md-6'>
-              <div className='single-service'>
-                <h4>
-                  <span className='lnr lnr-diamond' />
-                  Highly Recomended
-                </h4>
-                <p>
-                  Usage of the Internet is becoming more common due to rapid advancement of
-                  technology and power.
-                </p>
-              </div>
-            </div>
-            <div className='col-lg-4 col-md-6'>
-              <div className='single-service'>
-                <h4>
-                  <span className='lnr lnr-bubble' />
-                  Positive Reviews
-                </h4>
-                <p>
-                  Usage of the Internet is becoming more common due to rapid advancement of
-                  technology and power.
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -265,7 +171,7 @@ const IndexPage = props => {
           <div className='row d-flex justify-content-center'>
             <div className='menu-content pb-60 col-lg-10'>
               <div className='title text-center'>
-                <h1 className='mb-10 text-white'>SON ÜRÜNLERİMİZ</h1>
+                <h1 className='mb-10 text-white'>BAZI ÜRÜNLERİMİZ</h1>
                 <Link to='/products'>
                   <p>Daha fazlasını göster</p>
                 </Link>
@@ -284,12 +190,15 @@ const IndexPage = props => {
             <div className='menu-content pb-60 col-lg-10'>
               <div className='title text-center'>
                 <h1 className='mb-10'>Sıkça Sorulan Sorular</h1>
+                <Link to='/faq'>
+                  <p>Daha fazlasını göster</p>
+                </Link>
               </div>
             </div>
           </div>
           <div className='row justify-content-start'>
             <div className='col-lg-6 faq-left'>
-              <Accordion />
+              <Accordion limit={4} />
             </div>
           </div>
         </div>

@@ -21,7 +21,7 @@ const productsListItem = ({ image, slug, title }) => {
         <div className='desc'>
           <h4>{title}</h4>
           <Link
-            className='text-uppercase primary-btn blue-gradient product-item'
+            className='text-uppercase primary-btn blue-gradient product-item mt-3'
             to={'/products/' + slug}
           >
             İncele
