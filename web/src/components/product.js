@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import BlockContent from './block-content'
 import Img from 'gatsby-image'
 import { MDBContainer, MDBRow, MDBCol } from 'mdbreact'
