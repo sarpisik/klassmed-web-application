@@ -8,20 +8,12 @@ export const query = graphql`
   query ProductTemplateQuery($id: String!) {
     product: sanityProduct(id: { eq: $id }) {
       id
-      publishedAt
-      _rawBody
       categories {
         _id
         title
       }
-      relatedProducts {
-        title
-        _id
-        slug {
-          current
-        }
-      }
       title
+      markdownBody
       slug {
         current
       }

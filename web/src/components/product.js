@@ -1,9 +1,9 @@
 import React from 'react'
-import BlockContent from './block-content'
+import ReactMarkdown from 'react-markdown'
 import Img from 'gatsby-image'
 import { MDBContainer, MDBRow, MDBCol } from 'mdbreact'
 
-function Product ({ title, _rawBody, categories, mainImage, publishedAt, relatedProducts }) {
+function Product ({ title, markdownBody, mainImage }) {
   return (
     <MDBContainer fluid>
       <MDBRow className='landing-background-cover text-white justify-content-center'>
@@ -28,9 +28,18 @@ function Product ({ title, _rawBody, categories, mainImage, publishedAt, related
             className='mx-auto d-block'
           />
         </MDBCol>
-        {_rawBody && (
-          <MDBCol sm={12} md={8} lg={6} xl={4} className='flex align-items-center'>
-            <BlockContent blocks={_rawBody || []} />
+        {markdownBody && (
+          <MDBCol
+            style={{ fontSize: 'x-large' }}
+            sm={12}
+            md={8}
+            lg={6}
+            xl={4}
+            className='flex align-items-center'
+          >
+            <div className='py-5'>
+              <ReactMarkdown source={markdownBody || ''} />
+            </div>
           </MDBCol>
         )}
       </MDBRow>

@@ -27,7 +27,7 @@ export default {
     {
       name: 'excerpt',
       title: 'Excerpt',
-      type: 'blockText'
+      type: 'markdown'
     },
     {
       name: 'mainImage',
@@ -47,9 +47,12 @@ export default {
       of: [{ type: 'reference', to: { type: 'category' } }]
     },
     {
-      name: 'body',
-      title: 'Body',
-      type: 'blockContent'
+      name: 'markdownBody',
+      title: 'Markdown Body',
+      type: 'markdown',
+      options: {
+        minRows: 20
+      }
     },
     {
       name: 'relatedProducts',
@@ -64,7 +67,7 @@ export default {
       publishedAt: 'publishedAt',
       image: 'mainImage'
     },
-    prepare ({ title = 'No title', publishedAt, image }) {
+    prepare({ title = 'No title', publishedAt, image }) {
       return {
         title,
         subtitle: publishedAt
