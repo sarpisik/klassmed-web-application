@@ -1,5 +1,9 @@
 import { format } from 'date-fns'
 
+export function isOdd (num) {
+  return num % 2 == 0
+}
+
 export function cn (...args) {
   return args.filter(Boolean).join(' ')
 }
@@ -25,8 +29,12 @@ export function filterOutProducts (data) {
   }))
 }
 
-export function getBlogUrl (publishedAt, slug) {
-  return `/blog/${format(publishedAt, 'YYYY/MM')}/${slug.current || slug}/`
+export function filterOutServices (data) {
+  return mapEdgesToNodes(data).map(node => ({
+    title: mapNodeToAttribute(node, 'title'),
+    description: mapNodeToAttribute(node, 'description'),
+    id: mapNodeToAttribute(node, 'id')
+  }))
 }
 
 export function buildImageObj (source) {
