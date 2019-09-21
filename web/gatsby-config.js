@@ -13,6 +13,7 @@ module.exports = {
     },
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-layout',
     {
       resolve: `gatsby-source-filesystem`,
       options: {

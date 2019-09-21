@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
 import GraphQLErrorList from '../components/graphql-error-list'
 import Product from '../components/product'
 import SEO from '../components/seo'
-import Layout from '../containers/layout'
 
 export const query = graphql`
   query ProductTemplateQuery($id: String!) {
@@ -42,13 +41,13 @@ const ProductTemplate = props => {
   const { data, errors } = props
   const product = data && data.product
   return (
-    <Layout>
+    <Fragment>
       {errors && <SEO title='GraphQL Error' />}
       {product && <SEO title={product.title || 'Untitled'} />}
 
       {errors && <GraphQLErrorList errors={errors} />}
       {product && <Product {...product} />}
-    </Layout>
+    </Fragment>
   )
 }
 

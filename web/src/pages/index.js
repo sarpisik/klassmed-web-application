@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { filterOutProducts, mapImagesToFluid } from '../lib/helpers'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
-import Layout from '../containers/layout'
 import SlideContainer from '../containers/slide'
 import ProductContainer from '../containers/product'
 import ProductsList from '../containers/productsList'
@@ -12,12 +11,6 @@ import Accordion from '../components/accordion'
 
 export const query = graphql`
   query IndexPageQuery {
-    site: sanitySiteSettings(_id: { regex: "/(drafts.|)siteSettings/" }) {
-      title
-      description
-      keywords
-    }
-
     slides: allSanitySlide {
       edges {
         node {
@@ -84,32 +77,18 @@ export const query = graphql`
 const IndexPage = props => {
   const { data, errors } = props
 
-  if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    )
-  }
+  if (errors) return <GraphQLErrorList errors={errors} />
 
-  const site = (data || {}).site
   const slideImages = (data || {}).slides ? mapImagesToFluid(data.slides) : []
   const landingProductImage = (data || {}).landingProduct
     ? mapImagesToFluid(data.landingProduct)
     : []
   const productNodes = (data || {}).products ? filterOutProducts(data.products) : []
 
-  if (!site) {
-    throw new Error(
-      'Missing "Site settings". Open the studio at http://localhost:3333 and add some content to "Site settings" and restart the development server.'
-    )
-  }
-
   return (
-    <Layout>
-      <SEO title={site.title} description={site.description} keywords={site.keywords} />
+    <Fragment>
+      <SEO title='Anasayfa' />
       <SlideContainer images={slideImages} />
-
       <section className='top-course-area section-gap'>
         <div className='container'>
           <div className='row d-flex justify-content-center'>
@@ -315,7 +294,7 @@ const IndexPage = props => {
           </div>
         </div>
       </section>
-    </Layout>
+    </Fragment>
   )
 }
 

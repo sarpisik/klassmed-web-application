@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
 import BlockContent from '../components/block-content'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
-import Layout from '../containers/layout'
 import { MDBContainer, MDBRow, MDBCol } from 'mdbreact'
 import Img from 'gatsby-image'
 
@@ -35,13 +34,7 @@ export const query = graphql`
 `
 
 const ServicesPage = ({ data, errors }) => {
-  if (errors) {
-    return (
-      <Layout>
-        <GraphQLErrorList errors={errors} />
-      </Layout>
-    )
-  }
+  if (errors) return <GraphQLErrorList errors={errors} />
 
   const page = data && data.page
 
@@ -52,7 +45,7 @@ const ServicesPage = ({ data, errors }) => {
   }
 
   return (
-    <Layout>
+    <Fragment>
       <SEO title={page.title} />
       <MDBContainer fluid>
         <MDBRow className='service-landing text-white justify-content-center'>
@@ -149,7 +142,7 @@ const ServicesPage = ({ data, errors }) => {
           </MDBCol>
         </MDBRow>
       </Container>
-    </Layout>
+    </Fragment>
   )
 }
 

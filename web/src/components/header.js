@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from 'react'
-import { globalHistory } from '@reach/router'
 import { Link } from 'gatsby'
 import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavbarToggler, MDBCollapse } from 'mdbreact'
 import logo from '../images/logo.png'
@@ -13,7 +12,7 @@ const links = [
 ]
 const toggleNavList = collapse => !collapse
 
-const Header = () => {
+const Header = ({ location: { pathname } }) => {
   const [collapse, setCollapse] = useState(false)
 
   return (
@@ -26,7 +25,7 @@ const Header = () => {
         <MDBCollapse isOpen={collapse} navbar>
           <MDBNavbarNav right>
             {links.map(({ name, path }) => (
-              <MDBNavItem active={path === globalHistory.location.pathname}>
+              <MDBNavItem key={path} active={path === pathname}>
                 <Link className='nav-link text-capitalize' to={path}>
                   {name}
                 </Link>
