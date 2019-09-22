@@ -4,7 +4,6 @@ import BlockContent from '../components/block-content'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import { MDBContainer, MDBRow, MDBCol } from 'mdbreact'
-import Img from 'gatsby-image'
 import Accordion from '../components/accordion'
 
 export const query = graphql`
@@ -39,7 +38,7 @@ const FaqPage = ({ data, errors }) => {
             <BlockContent blocks={page._rawBody || []} />
           </MDBCol>
         </MDBRow>
-        <MDBRow className='justify-content-center'>
+        <MDBRow className='justify-content-center py-5'>
           <MDBCol lg={6}>
             <Accordion />
           </MDBCol>

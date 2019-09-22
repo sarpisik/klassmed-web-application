@@ -65,6 +65,9 @@ const Layout = ({ children, location }) => (
                       <a href='https://www.instagram.com/klassmedlazerepilasyon/'>
                         <i className='fab fa-3x fa-instagram' />
                       </a>
+                      <a href='mailto:klassmed@gmail.com'>
+                        <i className='fas fa-3x fa-envelope' />
+                      </a>
                     </div>
                   </div>
                 </div>
