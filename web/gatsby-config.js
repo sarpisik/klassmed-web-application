@@ -34,7 +34,7 @@ module.exports = {
       }
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`
+    `gatsby-plugin-sharp`,
     // {
     //   resolve: `gatsby-plugin-gtag`,
     //   options: {
@@ -46,31 +46,31 @@ module.exports = {
     //     anonymize: true
     //   }
     // },
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `Sarp ISIK Portfolio Web App`,
-    //     short_name: `Sarp ISIK`,
-    //     start_url: `/`,
-    //     background_color: `#6CD4F4`,
-    //     theme_color: `#6CD4F4`,
-    //     // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
-    //     // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
-    //     display: 'standalone',
-    //     icon: `src/images/sarp_isik_dark_logo.png` // This path is relative to the root of the site.
-    //   }
-    // },
-    // `gatsby-plugin-sitemap`,
-    // {
-    //   resolve: 'gatsby-plugin-robots-txt',
-    //   options: {
-    //     host: process.env.SITE_URL,
-    //     sitemap: `${process.env.SITE_URL}/sitemap.xml`,
-    //     policy: [{ userAgent: '*', disallow: '' }]
-    //   }
-    // },
-    // // To learn more, visit: https://gatsby.dev/offline // this (optional) plugin enables Progressive Web App + Offline functionality
-    // `gatsby-plugin-offline`
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Klassmed Lazer Epilasyon Cihazları`,
+        short_name: `Klassmed Lazer`,
+        start_url: `/`,
+        background_color: `#000000`,
+        theme_color: `#007bff`,
+        // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+        // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+        display: 'standalone',
+        icon: `src/images/logo-pwa.png` // This path is relative to the root of the site.
+      }
+    },
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: process.env.SITE_URL,
+        sitemap: `${process.env.SITE_URL}/sitemap.xml`,
+        policy: [{ userAgent: '*', disallow: '' }]
+      }
+    },
+    // To learn more, visit: https://gatsby.dev/offline // this (optional) plugin enables Progressive Web App + Offline functionality
+    `gatsby-plugin-offline`
   ]
 }
 

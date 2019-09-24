@@ -14,7 +14,8 @@
         "env": {
           "SANITY_TOKEN": "@klassmed-sanity-token",
           "SANITY_PROJECT_ID": "@klassmed-sanity-project",
-          "SANITY_DATASET": "@klassmed-sanity-dataset"
+          "SANITY_DATASET": "@klassmed-sanity-dataset",
+          "SITE_URL": "@web-site-url-klassmed"
         }
       }
     },
