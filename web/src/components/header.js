@@ -9,7 +9,8 @@ const links = [
   { name: 'kurumsal', path: '/about' },
   { name: 'ürünlerimiz', path: '/products' },
   { name: 'teknik destek', path: '/services' },
-  { name: 'S.S.S.', path: '/faq' }
+  { name: 'S.S.S.', path: '/faq' },
+  { name: 'iletişim', path: '/contact' }
 ]
 const toggleNavList = collapse => !collapse
 

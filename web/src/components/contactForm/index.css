@@ -38,6 +38,7 @@
   .column-radius:last-child {
     border-bottom-left-radius: 0;
     border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 }
 
@@ -232,10 +233,7 @@ textarea.input3 {
 
 .contact3-form-btn {
   font-size: 16px;
-  color: #555555;
   line-height: 1.2;
-  text-transform: uppercase;
-
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -249,33 +247,13 @@ textarea.input3 {
   border-radius: 2px;
   position: relative;
   z-index: 1;
-  background: #04091e;
-}
-
-.contact3-form-btn::before {
-  content: '';
-  display: block;
-  position: absolute;
-  z-index: -1;
-  border-radius: 2px;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: #fff;
-  opacity: 1;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
+  box-shadow: 0 0 0.5rem 0.2rem rgba(255, 255, 255, 1.15);
 }
 
 .contact3-form-btn:hover {
-  color: #fff;
-}
-
-.contact3-form-btn:hover:before {
-  opacity: 0;
+  color: #4285f4 !important;
+  background-color: #fff !important;
+  box-shadow: none;
 }
 
 /*------------------------------------------------------------------

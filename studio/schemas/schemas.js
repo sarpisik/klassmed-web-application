@@ -12,6 +12,7 @@ import companyInfo from './companyInfo'
 import faq from './faq'
 import figure from './figure'
 import mainImage from './mainImage'
+import message from './message'
 import page from './page'
 import product from './product'
 import service from './service'
@@ -35,6 +36,7 @@ export default createSchema({
     faq,
     figure,
     mainImage,
+    message,
     page,
     product,
     service,

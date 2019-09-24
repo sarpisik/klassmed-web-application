@@ -3,6 +3,10 @@
   "name": "klassmed",
   "builds": [
     {
+      "src": "web/api/*.js",
+      "use": "@now/node"
+    },
+    {
       "src": "web/package.json",
       "use": "@now/static-build",
       "config": {
@@ -17,16 +21,32 @@
     {
       "src": "studio/package.json",
       "use": "@now/static-build",
-      "config": { "distDir": "dist" }
+      "config": {
+        "distDir": "dist"
+      }
     }
   ],
   "routes": [
     { "src": "^/studio/static/(.*)", "dest": "/studio/static/$1" },
     { "src": "^/studio/(.*)", "dest": "/studio/index.html" },
     {
+      "src": "/api/(.*)",
+      "methods": ["POST"],
+      "dest": "/web/api"
+    },
+    {
       "src": "/(.*)",
       "dest": "/web/$1"
     }
   ],
-  "alias": ["klassmed.com", "wwww.klassmed.com"]
+  "env": {
+    "EMAIL_HOST": "@email-host-klassmed",
+    "EMAIL_AUTH_USER": "@email-auth-user-klassmed",
+    "EMAIL_AUTH_PASSWORD": "@email-auth-password-klassmed",
+    "EMAIL_SENDER": "@email-sender-klassmed",
+    "EMAIL_RECEIVER": "@email-receiver-klassmed",
+    "SANITY_PROJECT_ID": "@klassmed-sanity-project",
+    "SANITY_DATASET": "@klassmed-sanity-dataset",
+    "SANITY_TOKEN_WRITE": "@klassmed-sanity-token-write"
+  }
 }
