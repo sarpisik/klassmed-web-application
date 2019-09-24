@@ -58,9 +58,9 @@ const onFormSubmit = ({ isLoading, error, ...body }, setState) => async event =>
   event.preventDefault()
   try {
     // Display spinner
-    setState(state => ({ ...state, isLoading: true }))
+    setState(state => ({ ...state, error: INITIAL_STATE.error, isLoading: true }))
     // Make API post
-    const response = await axios.post('/api', body)
+    await axios.post('/api', body)
     // Display success.
     setState(state => ({ ...state, isMessageSendSucceed: true }))
     // Clear form after 2 sec
@@ -73,9 +73,6 @@ const onFormSubmit = ({ isLoading, error, ...body }, setState) => async event =>
        * The request was made and the server responded with a
        * status code that falls out of the range of 2xx
        */
-      console.log(error.response.data)
-      console.log(error.response.status)
-      console.log(error.response.headers)
       return (
         error.response.data.type &&
         error.response.data.type === 'validation' &&
@@ -93,7 +90,6 @@ const onFormSubmit = ({ isLoading, error, ...body }, setState) => async event =>
     window.alert(
       'Üzgünüz bir hata oluştuğu için mesajınız iletilemedi. Lütfen diğer iletişim kanallarını deneyiniz.'
     )
-    console.log(error)
   }
 }
 
