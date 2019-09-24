@@ -2,15 +2,13 @@ require('dotenv').config()
 const {
   api: { projectId, dataset }
 } = requireConfig('../studio/sanity.json')
-console.log('process.env genel ,', process.env)
-console.log('process.env.SITE_URL genel site ,', process.env.SITE_URL)
 
 module.exports = {
   siteMetadata: {
     title: `Klassmed Lazer Epilasyon`,
     description: `Klassmed lazer epilasyon ve dövme silme cihazları.`,
     author: `@sarpisik`,
-    siteUrl: process.env.SITE_URL
+    siteUrl: 'https://www.klassmed.com'
   },
   plugins: [
     {
