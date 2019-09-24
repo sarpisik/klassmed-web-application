@@ -37,9 +37,13 @@ module.exports = ({ body: { name, email, text } }, res) => {
   const isNameInvalid = !isAlpha(name, 'tr-TR')
   const isTextInvalid = !isAlphanumeric(text, 'tr-TR')
 
-  // If the inputs are valid, register text.
-  // Else, respond error
-  if (isEmailInvalid && isNameInvalid && isTextInvalid) {
+  // If the inputs are invalid, respond error.
+  // Else, register message.
+  if (isEmailInvalid || isNameInvalid || isTextInvalid) {
+    res
+      .status(500)
+      .send({ type: 'validation', email: isEmailInvalid, name: isNameInvalid, text: isTextInvalid })
+  } else {
     // Normalize inputs
     const textSenderEmail = normalizeEmail(email).trim(email)
     const textSenderName = trim(name)
@@ -77,9 +81,5 @@ module.exports = ({ body: { name, email, text } }, res) => {
         // Email sent succeed but registering failed.
         .catch(error => res.status(500).send({ error }))
     })
-  } else {
-    res
-      .status(500)
-      .send({ type: 'validation', email: isEmailInvalid, name: isNameInvalid, text: isTextInvalid })
   }
 }
