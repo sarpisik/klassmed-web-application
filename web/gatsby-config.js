@@ -55,7 +55,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Klassmed Lazer Epilasyon Cihazları`,
+        name: `Klassmed Lazer Epilasyon Ve Dövme Silme Cihazları`,
         short_name: `Klassmed Lazer`,
         start_url: `/`,
         background_color: `#000000`,
