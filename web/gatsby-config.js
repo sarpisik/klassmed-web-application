@@ -2,8 +2,8 @@ require('dotenv').config()
 const {
   api: { projectId, dataset }
 } = requireConfig('../studio/sanity.json')
-console.log(process.env)
-console.log(process.env.SITE_URL)
+console.log('process.env genel ,', process.env)
+console.log('process.env.SITE_URL genel site ,', process.env.SITE_URL)
 
 module.exports = {
   siteMetadata: {
