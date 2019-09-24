@@ -9,7 +9,7 @@ import { MDBRow } from 'mdbreact'
 
 export const query = graphql`
   query ProductsPageQuery {
-    products: allSanityProduct(sort: { fields: [publishedAt], order: DESC }, filter: {}) {
+    products: allSanityProduct(sort: { order: DESC, fields: [publishedAt, categories___title] }) {
       edges {
         node {
           title

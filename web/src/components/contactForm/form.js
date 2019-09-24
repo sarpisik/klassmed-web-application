@@ -51,6 +51,11 @@ const Loading = () => (
   </Fragment>
 )
 
+const switchOffLoading = state => ({
+  ...state,
+  isLoading: false
+})
+
 const onFormChange = setState => ({ target: { name, value } }) =>
   setState(state => ({ ...state, [name]: value }))
 
@@ -59,14 +64,25 @@ const onFormSubmit = ({ isLoading, error, ...body }, setState) => async event =>
   try {
     // Display spinner
     setState(state => ({ ...state, error: INITIAL_STATE.error, isLoading: true }))
+
     // Make API post
-    await axios.post('/api', body)
-    // Display success.
-    setState(state => ({ ...state, isMessageSendSucceed: true }))
-    // Clear form after 2 sec
-    await setTimeout(() => {
-      setState(INITIAL_STATE)
-    }, 2000)
+    const response = await axios.post('/api', body)
+
+    // If post succeed, feedback success.
+    // Else, alert user.
+    if (response.type && response.type === 'success') {
+      // Display success.
+      setState(state => ({ ...state, isMessageSendSucceed: true }))
+      // Clear form after 2 sec
+      return await setTimeout(() => {
+        setState(INITIAL_STATE)
+      }, 2000)
+    }
+
+    await setState(switchOffLoading)
+    window.alert(
+      'Üzgünüz bir hata oluştuğu için mesajınız iletilemedi. Lütfen diğer iletişim kanallarını deneyiniz.'
+    )
   } catch (error) {
     if (error.response) {
       /*
@@ -83,10 +99,7 @@ const onFormSubmit = ({ isLoading, error, ...body }, setState) => async event =>
         }))
       )
     }
-    await setState(state => ({
-      ...state,
-      isLoading: false
-    }))
+    await setState(switchOffLoading)
     window.alert(
       'Üzgünüz bir hata oluştuğu için mesajınız iletilemedi. Lütfen diğer iletişim kanallarını deneyiniz.'
     )
@@ -102,7 +115,7 @@ const Form = () => {
 
   return (
     <div className='wrap-contact3 blue-gradient column-radius'>
-      <form onSubmit={onSubmit} onChange={onChange} className='contact3-form validate-form'>
+      <form onSubmit={onSubmit} className='contact3-form validate-form'>
         <span className='contact3-form-title font-weight-bold'>İLETİŞİM</span>
         <MDBRow className='pb-3'>{Icons.map(SocialIcon)}</MDBRow>
         <div className='wrap-input3 validate-input'>
@@ -113,6 +126,7 @@ const Form = () => {
           )}
           {error.name && <span className='text-danger'>İsim geçersiz.</span>}
           <input
+            onChange={onChange}
             disabled={isLoading}
             className='input3'
             type='text'
@@ -127,6 +141,7 @@ const Form = () => {
         <div className='wrap-input3 validate-input'>
           {error.email && <span className='text-danger'>Email geçersiz.</span>}
           <input
+            onChange={onChange}
             disabled={isLoading}
             className='input3'
             type='email'
@@ -140,6 +155,7 @@ const Form = () => {
         <div className='wrap-input3 validate-input'>
           {error.text && <span className='text-danger'>Mesaj geçersiz.</span>}
           <textarea
+            onChange={onChange}
             disabled={isLoading}
             className='input3'
             name='text'
@@ -152,7 +168,7 @@ const Form = () => {
 
         <div className='container-contact3-form-btn'>
           <button
-            disabled={isLoading}
+            disabled={name === '' || email === '' || text === '' || isLoading}
             className='bg-transparent contact3-form-btn font-weight-bold text-white w-100'
           >
             {isLoading ? <Loading /> : 'Gönder'}

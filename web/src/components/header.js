@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { Link } from 'gatsby'
 import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavbarToggler, MDBCollapse } from 'mdbreact'
 import logo from '../images/logo.svg'
@@ -12,10 +12,15 @@ const links = [
   { name: 'S.S.S.', path: '/faq' },
   { name: 'iletişim', path: '/contact' }
 ]
-const toggleNavList = collapse => !collapse
+const toggleCollapse = collapse => !collapse
 
 const Header = ({ location: { pathname } }) => {
   const [collapse, setCollapse] = useState(false)
+
+  const toggleNavList = () => setCollapse(toggleCollapse)
+  console.log(pathname)
+
+  // useEffect(toggleNavList, [pathname])
 
   return (
     <Fragment>
@@ -23,12 +28,12 @@ const Header = ({ location: { pathname } }) => {
         <Link className='nav-link logo' to='/'>
           <img src={logo} alt='klassmed logo' title='Klassmed Logo' />
         </Link>
-        <MDBNavbarToggler onClick={() => setCollapse(toggleNavList)} />
+        <MDBNavbarToggler onClick={toggleNavList} />
         <MDBCollapse isOpen={collapse} navbar>
           <MDBNavbarNav right>
             {links.map(({ name, path }) => (
               <MDBNavItem key={path} active={path === pathname}>
-                <Link className='nav-link text-capitalize' to={path}>
+                <Link onClick={toggleNavList} className='nav-link text-capitalize' to={path}>
                   {name}
                 </Link>
               </MDBNavItem>
