@@ -4,6 +4,12 @@ const {
 } = requireConfig('../studio/sanity.json')
 
 module.exports = {
+  siteMetadata: {
+    title: `Klassmed Lazer Epilasyon`,
+    description: `Klassmed lazer epilasyon ve dövme silme cihazları.`,
+    author: `@sarpisik`,
+    siteUrl: process.env.SITE_URL
+  },
   plugins: [
     {
       resolve: 'gatsby-plugin-html-attributes',
