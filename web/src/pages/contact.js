@@ -3,8 +3,6 @@ import { graphql } from 'gatsby'
 import { MDBContainer, MDBRow } from 'mdbreact'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
-
-import { responsiveTitle1 } from '../components/typography.module.css'
 import Contact from '../components/contactForm'
 
 export const query = graphql`
