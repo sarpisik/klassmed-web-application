@@ -12,6 +12,15 @@
   },
   "version": 2,
   "name": "klassmed",
+  "build": {
+    "env": {
+      "SANITY_TOKEN": "@klassmed-sanity-token",
+      "SANITY_PROJECT_ID": "@klassmed-sanity-project",
+      "SANITY_DATASET": "@klassmed-sanity-dataset",
+      "SITE_URL": "@web-site-url-klassmed",
+      "GOOGLE_MAPS_API": "@google-maps-api-klassmed"
+    }
+  },
   "builds": [
     {
       "src": "web/api/*.js",
@@ -22,13 +31,6 @@
       "use": "@now/static-build",
       "config": {
         "distDir": "public"
-      },
-      "env": {
-        "SANITY_TOKEN": "@klassmed-sanity-token",
-        "SANITY_PROJECT_ID": "@klassmed-sanity-project",
-        "SANITY_DATASET": "@klassmed-sanity-dataset",
-        "SITE_URL": "@web-site-url-klassmed",
-        "GOOGLE_MAPS_API": "@google-maps-api-klassmed"
       }
     },
     {
