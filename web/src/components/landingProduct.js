@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 const Product = (image, index) => {
   return (
     <Img
-      style={{ maxHeight: '500px' }}
+      style={{ maxHeight: '900px' }}
       imgStyle={{
         maxHeight: '100%',
         maxWidth: '100%',

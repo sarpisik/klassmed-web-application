@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import Img from 'gatsby-image'
 import { MDBContainer, MDBRow, MDBCol } from 'mdbreact'
 
-function Product ({ title, markdownBody, mainImage }) {
+function Product ({ title, markdownBody, mainImage, maxHeight = 'inherit' }) {
   return (
     <MDBContainer fluid>
       <MDBRow className='landing-background-cover text-white justify-content-center'>
@@ -14,7 +14,7 @@ function Product ({ title, markdownBody, mainImage }) {
       <MDBRow className='justify-content-center py-5'>
         <MDBCol sm={12} md={8} lg={6} xl={4}>
           <Img
-            style={{ maxHeight: '500px' }}
+            style={{ maxHeight }}
             imgStyle={{
               maxHeight: '100%',
               maxWidth: '100%',

@@ -71,6 +71,14 @@ export const query = graphql`
         }
       }
     }
+
+    faqImage: file(relativePath: { eq: "logo-pwa.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 900) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
 `
 
@@ -146,11 +154,23 @@ const IndexPage = props => {
         </div>
       </section>
 
-      <section className='home-about-area'>
+      <section className='home-about-area py-5'>
         <div className='container-fluid'>
           <div className='row justify-content-center align-items-center'>
             <div className='col-lg-6 no-padding home-about-left'>
-              <Img className='img-fluid' fluid={data.otherProduct.childImageSharp.fluid} />
+              <Img
+                className='img-fluid'
+                style={{ maxHeight: '300px' }}
+                imgStyle={{
+                  maxHeight: '100%',
+                  maxWidth: '100%',
+                  width: 'inherit%',
+                  height: 'inherit',
+                  margin: 'auto',
+                  right: '0px'
+                }}
+                fluid={data.otherProduct.childImageSharp.fluid}
+              />
             </div>
             <div className='col-lg-6 no-padding home-about-right'>
               <h1>Sadece Lazer Değil...</h1>
@@ -199,6 +219,9 @@ const IndexPage = props => {
           <div className='row justify-content-start'>
             <div className='col-lg-6 faq-left'>
               <Accordion limit={4} />
+            </div>
+            <div className='col-lg-6 d-none d-lg-block'>
+              <Img className='img-fluid' fluid={data.faqImage.childImageSharp.fluid} />
             </div>
           </div>
         </div>

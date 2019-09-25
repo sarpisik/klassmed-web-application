@@ -8,10 +8,13 @@ const productsListItem = ({ image, slug, title }) => {
       <div className='single-unique-product shadow-lg'>
         <Img
           className='img-fluid mx-auto d-block'
+          style={{
+            maxHeight: '300px'
+          }}
           imgStyle={{
             maxHeight: '100%',
             maxWidth: '100%',
-            width: 'inherit',
+            width: '100%',
             height: 'inherit',
             margin: 'auto',
             right: '0px'
@@ -19,7 +22,7 @@ const productsListItem = ({ image, slug, title }) => {
           fluid={image}
         />
         <div className='desc'>
-          <h4>{title}</h4>
+          <h4 className='wrapped-title'>{title}</h4>
           <Link
             className='text-uppercase primary-btn blue-gradient product-item mt-3'
             to={'/products/' + slug}

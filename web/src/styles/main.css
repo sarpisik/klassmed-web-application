@@ -787,6 +787,13 @@ th {
   width: 50%;
   max-width: 250px;
 }
+.wrapped-title {
+  width: 90%;
+  margin: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 #accordion .btn-default {
   background-color: transparent !important;
 }
@@ -2604,7 +2611,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .single-unique-product img {
-  padding: 40px 0px;
+  /* padding: 40px 0px; */
 }
 
 .single-unique-product h6 {
@@ -2656,10 +2663,10 @@ body.mobile-nav-active #mobile-nav-toggle {
   box-shadow: 0px 20px 30px 0px rgba(35, 94, 231, 0.2);
 }
 
-.faq-area {
-  background: url(../images/faq-bg.jpg) center;
+/* .faq-area {
+  background: url(../images/logo-pwa.png) center;
   background-size: cover;
-}
+} */
 
 .faq-left .card {
   border: none;
