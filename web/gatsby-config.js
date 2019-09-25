@@ -41,17 +41,17 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    // {
-    //   resolve: `gatsby-plugin-gtag`,
-    //   options: {
-    //     // your google analytics tracking id
-    //     trackingId: process.env.GOOGLE_TRACK_ID,
-    //     // Puts tracking script in the head instead of the body
-    //     head: false,
-    //     // enable ip anonymization
-    //     anonymize: true
-    //   }
-    // },
+    {
+      resolve: `gatsby-plugin-gtag`,
+      options: {
+        // your google analytics tracking id
+        trackingId: process.env.GOOGLE_TRACK_ID,
+        // Puts tracking script in the head instead of the body
+        head: false,
+        // enable ip anonymization
+        anonymize: true
+      }
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

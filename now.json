@@ -18,7 +18,8 @@
       "SANITY_PROJECT_ID": "@klassmed-sanity-project",
       "SANITY_DATASET": "@klassmed-sanity-dataset",
       "SITE_URL": "@web-site-url-klassmed",
-      "GATSBY_GOOGLE_MAPS_API": "@google-maps-api-klassmed"
+      "GATSBY_GOOGLE_MAPS_API": "@google-maps-api-klassmed",
+      "GOOGLE_TRACK_ID": "@google-analytics-api-klassmed"
     }
   },
   "builds": [
