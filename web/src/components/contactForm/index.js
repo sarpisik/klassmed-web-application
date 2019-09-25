@@ -10,7 +10,9 @@ const Contact = () => (
       <Map
         isMarkerShown
         googleMapURL={`https://maps.googleapis.com/maps/api/js?${
-          process.env.GOOGLE_MAPS_API ? 'key=' + process.env.GOOGLE_MAPS_API + '&' : ''
+          process.env.GATSBY_GOOGLE_MAPS_API
+            ? 'key=' + process.env.GATSBY_GOOGLE_MAPS_API + '&'
+            : ''
         }v=3.exp&libraries=geometry,drawing,places`}
         loadingElement={<div className='map' />}
         containerElement={<div className='map' />}
