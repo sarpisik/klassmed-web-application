@@ -1,4 +1,15 @@
 {
+  "env": {
+    "EMAIL_HOST": "@email-host-klassmed",
+    "EMAIL_AUTH_USER": "@email-auth-user-klassmed",
+    "EMAIL_AUTH_PASSWORD": "@email-auth-password-klassmed",
+    "EMAIL_SENDER": "@email-sender-klassmed",
+    "EMAIL_RECEIVER": "@email-receiver-klassmed",
+    "SANITY_PROJECT_ID": "@klassmed-sanity-project",
+    "SANITY_DATASET": "@klassmed-sanity-dataset",
+    "SANITY_TOKEN_WRITE": "@klassmed-sanity-token-write",
+    "GOOGLE_MAPS_API": "@google-maps-api-klassmed"
+  },
   "version": 2,
   "name": "klassmed",
   "builds": [
@@ -10,14 +21,14 @@
       "src": "web/package.json",
       "use": "@now/static-build",
       "config": {
-        "distDir": "public",
-        "env": {
-          "SANITY_TOKEN": "@klassmed-sanity-token",
-          "SANITY_PROJECT_ID": "@klassmed-sanity-project",
-          "SANITY_DATASET": "@klassmed-sanity-dataset",
-          "SITE_URL": "@web-site-url-klassmed",
-          "GOOGLE_MAPS_API": "@google-maps-api-klassmed"
-        }
+        "distDir": "public"
+      },
+      "env": {
+        "SANITY_TOKEN": "@klassmed-sanity-token",
+        "SANITY_PROJECT_ID": "@klassmed-sanity-project",
+        "SANITY_DATASET": "@klassmed-sanity-dataset",
+        "SITE_URL": "@web-site-url-klassmed",
+        "GOOGLE_MAPS_API": "@google-maps-api-klassmed"
       }
     },
     {
@@ -40,16 +51,5 @@
       "src": "/(.*)",
       "dest": "/web/$1"
     }
-  ],
-  "env": {
-    "EMAIL_HOST": "@email-host-klassmed",
-    "EMAIL_AUTH_USER": "@email-auth-user-klassmed",
-    "EMAIL_AUTH_PASSWORD": "@email-auth-password-klassmed",
-    "EMAIL_SENDER": "@email-sender-klassmed",
-    "EMAIL_RECEIVER": "@email-receiver-klassmed",
-    "SANITY_PROJECT_ID": "@klassmed-sanity-project",
-    "SANITY_DATASET": "@klassmed-sanity-dataset",
-    "SANITY_TOKEN_WRITE": "@klassmed-sanity-token-write",
-    "GOOGLE_MAPS_API": "@google-maps-api-klassmed"
-  }
+  ]
 }
