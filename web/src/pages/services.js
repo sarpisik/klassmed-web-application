@@ -52,12 +52,10 @@ export const query = graphql`
   }
 `
 
-const Service = ({ title, description, id }, index) => (
+const Service = type => ({ title, description, id }) => (
   <MDBCard key={id} className='smooth-shadow mb-3'>
     <MDBCardBody>
-      <MDBCardTitle className={`service-title ${isOdd(index) ? 'odd' : 'even'} p-2 text-white`}>
-        {title}
-      </MDBCardTitle>
+      <MDBCardTitle className={`service-title ${type} p-2 text-white`}>{title}</MDBCardTitle>
       <MDBCardText>{description}</MDBCardText>
     </MDBCardBody>
   </MDBCard>
@@ -95,8 +93,8 @@ const ServicesPage = ({ data, errors }) => {
       </MDBContainer>
       <Container>
         <MDBRow>
-          <MDBCol sm={6}>{servicesColFirst.map(Service)}</MDBCol>
-          <MDBCol sm={6}>{servicesColSecond.map(Service)}</MDBCol>
+          <MDBCol sm={6}>{servicesColFirst.map(Service('odd'))}</MDBCol>
+          <MDBCol sm={6}>{servicesColSecond.map(Service('even'))}</MDBCol>
         </MDBRow>
       </Container>
     </Fragment>

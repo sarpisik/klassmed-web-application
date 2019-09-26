@@ -26,7 +26,7 @@ const productsListItem = ({ image, slug, title }) => {
         <div className='desc'>
           <h4 className='wrapped-title'>{title}</h4>
           <Link
-            className='text-uppercase primary-btn blue-gradient product-item mt-3'
+            className='text-uppercase primary-btn blue-gradient product-item mt-3 border-0 smooth-shadow'
             to={'/products/' + slug}
           >
             İncele
