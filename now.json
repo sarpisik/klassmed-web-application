@@ -5,6 +5,7 @@
     "EMAIL_AUTH_PASSWORD": "@email-auth-password-klassmed",
     "EMAIL_SENDER": "@email-sender-klassmed",
     "EMAIL_RECEIVER": "@email-receiver-klassmed",
+    "EMAIL_CC": "@email-cc",
     "SANITY_PROJECT_ID": "@klassmed-sanity-project",
     "SANITY_DATASET": "@klassmed-sanity-dataset",
     "SANITY_TOKEN_WRITE": "@klassmed-sanity-token-write",

@@ -6,6 +6,7 @@ const {
   EMAIL_AUTH_USER: user,
   EMAIL_AUTH_PASSWORD: pass,
   EMAIL_SENDER: from,
+  EMAIL_CC: cc,
   EMAIL_RECEIVER: to
 } = process.env
 const sanityClient = require('@sanity/client')({
@@ -53,6 +54,7 @@ module.exports = ({ body: { name, email, text } }, res) => {
     const options = {
       from,
       to,
+      cc,
       subject: 'Yeni Mesaj',
       html:
         'Message from: ' +
