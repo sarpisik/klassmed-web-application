@@ -13,7 +13,7 @@ const sanityClient = require('@sanity/client')({
   dataset,
   token
 })
-const { isEmail, isAlpha, isAlphanumeric, normalizeEmail, trim } = require('validator')
+const { isEmail, isAlpha, isEmpty, normalizeEmail, trim } = require('validator')
 const nodemailer = require('nodemailer')
 // Custom mail auth config.
 const auth = {
@@ -35,7 +35,7 @@ transporter.verify(error =>
 module.exports = ({ body: { name, email, text } }, res) => {
   const isEmailInvalid = !isEmail(email)
   const isNameInvalid = !isAlpha(name, 'tr-TR')
-  const isTextInvalid = !isAlphanumeric(text, 'tr-TR')
+  const isTextInvalid = isEmpty(text)
 
   // If the inputs are invalid, respond error.
   // Else, register message.

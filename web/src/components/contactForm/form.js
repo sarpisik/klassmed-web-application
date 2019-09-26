@@ -70,7 +70,7 @@ const onFormSubmit = ({ isLoading, error, ...body }, setState) => async event =>
 
     // If post succeed, feedback success.
     // Else, alert user.
-    if (response.type && response.type === 'success') {
+    if (response.data.type && response.data.type === 'success') {
       // Display success.
       setState(state => ({ ...state, isMessageSendSucceed: true }))
       // Clear form after 2 sec
