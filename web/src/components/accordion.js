@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { MDBBtn, MDBCollapse } from 'mdbreact'
-import { filterOutQuestions } from '../lib/helpers'
+import { filterOutQuestions, capitalizeLetter } from '../lib/helpers'
 
 const toggleAccordion = (id, handler) => () => handler(id)
 
@@ -14,7 +14,7 @@ const Question = ({ collapseID, setCollapseID }) => ({ id, question, answer }) =
           className='shadow-none text-capitalize text-left'
           onClick={toggleAccordion(id, setCollapseID)}
         >
-          {question}
+          {capitalizeLetter(question)}
         </MDBBtn>
       </h5>
     </div>

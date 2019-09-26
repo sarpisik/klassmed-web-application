@@ -1,6 +1,7 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import { Link } from 'gatsby'
+import { capitalizeLetter } from '../lib/helpers'
 
 const productsListItem = ({ image, slug, title }) => {
   return (
@@ -24,7 +25,7 @@ const productsListItem = ({ image, slug, title }) => {
           fluid={image}
         />
         <div className='desc'>
-          <h4 className='wrapped-title'>{title}</h4>
+          <h4 className='wrapped-title'>{capitalizeLetter(title)}</h4>
           <Link
             className='text-uppercase primary-btn blue-gradient product-item mt-3 border-0 smooth-shadow'
             to={'/products/' + slug}

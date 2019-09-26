@@ -12,6 +12,12 @@ export default {
       name: 'mainImage',
       title: 'Main image',
       type: 'mainImage'
+    },
+    {
+      name: 'publishedAt',
+      title: 'Published at',
+      description: 'You can use this field to schedule products where you show them',
+      type: 'datetime'
     }
   ],
   preview: {
@@ -20,7 +26,7 @@ export default {
       publishedAt: 'publishedAt',
       image: 'mainImage'
     },
-    prepare ({ title = 'No title', publishedAt, image }) {
+    prepare({ title = 'No title', publishedAt, image }) {
       return {
         title,
         subtitle: publishedAt

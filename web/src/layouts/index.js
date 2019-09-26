@@ -73,11 +73,14 @@ const Layout = ({ children, location }) => (
                 </div>
               </div>
             </div>
-            <a href='https://sarpisik.com'>
-              <p className='sarp-isik footer-text text-center p-2 m-0 font-weight-bold'>
+            <div className='text-center footer-text p-2 m-0 font-weight-bold'>
+              <a href='https://sarpisik.com' className='smooth-bottom' title='Web Developer'>
                 Made By SARP IŞIK
-              </p>
-            </a>
+                {/* <p className='sarp-isik footer-text text-center p-2 m-0 font-weight-bold'>
+                Made By SARP IŞIK
+              </p> */}
+              </a>
+            </div>
           </footer>
         </Fragment>
       )

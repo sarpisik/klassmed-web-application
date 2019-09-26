@@ -1,7 +1,8 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Link } from 'gatsby'
 import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavbarToggler, MDBCollapse } from 'mdbreact'
 import logo from '../images/logo.svg'
+import { capitalizeLetter } from '../lib/helpers'
 
 const bgColor = { backgroundColor: '#04091e' }
 const links = [
@@ -37,8 +38,13 @@ const Header = ({ location: { pathname } }) => {
           <MDBNavbarNav right>
             {links.map(({ name, path }) => (
               <MDBNavItem key={path} active={path === pathname}>
-                <Link onClick={toggleNavList} className='nav-link text-capitalize' to={path}>
-                  {name}
+                <Link
+                  lang='tr'
+                  onClick={toggleNavList}
+                  className='nav-link smooth-bottom'
+                  to={path}
+                >
+                  {capitalizeLetter(name)}
                 </Link>
               </MDBNavItem>
             ))}

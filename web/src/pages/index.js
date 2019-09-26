@@ -11,7 +11,7 @@ import Accordion from '../components/accordion'
 
 export const query = graphql`
   query IndexPageQuery {
-    slides: allSanitySlide {
+    slides: allSanitySlide(sort: { order: DESC, fields: [publishedAt] }) {
       edges {
         node {
           mainImage {
@@ -47,7 +47,7 @@ export const query = graphql`
 
     otherProduct: file(relativePath: { eq: "cilt_bakım_cihazı.png" }) {
       childImageSharp {
-        fluid(maxWidth: 446) {
+        fluid(maxWidth: 960) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -178,9 +178,6 @@ const IndexPage = props => {
                 Güzellik salonu veya kliniklerinin ihtiyaç duyduğu bütün cihazları bizlerden temin
                 etmeniz mümkündür.
               </p>
-              <a className='text-uppercase primary-btn' href='#'>
-                get details
-              </a>
             </div>
           </div>
         </div>
@@ -192,8 +189,8 @@ const IndexPage = props => {
             <div className='menu-content pb-60 col-lg-10'>
               <div className='title text-center'>
                 <h1 className='mb-10 text-white'>BAZI ÜRÜNLERİMİZ</h1>
-                <Link to='/products'>
-                  <p>Daha fazlasını göster</p>
+                <Link className='smooth-bottom' to='/products'>
+                  Daha fazlasını göster
                 </Link>
               </div>
             </div>
@@ -210,8 +207,8 @@ const IndexPage = props => {
             <div className='menu-content pb-60 col-lg-10'>
               <div className='title text-center'>
                 <h1 className='mb-10'>Sıkça Sorulan Sorular</h1>
-                <Link to='/faq'>
-                  <p>Daha fazlasını göster</p>
+                <Link className='smooth-bottom' to='/faq'>
+                  Daha fazlasını göster
                 </Link>
               </div>
             </div>
