@@ -6,7 +6,7 @@ import { filterOutQuestions } from '../lib/helpers'
 const toggleAccordion = (id, handler) => () => handler(id)
 
 const Question = ({ collapseID, setCollapseID }) => ({ id, question, answer }) => (
-  <div key={id} className='card smooth-shadow'>
+  <div key={id} className='card smooth-shadow mb-2'>
     <div className='card-header blue-gradient'>
       <h5 className='mb-0'>
         <MDBBtn

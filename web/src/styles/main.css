@@ -787,6 +787,11 @@ th {
   width: 50%;
   max-width: 250px;
 }
+.navbar.navbar-dark .breadcrumb .nav-item.active > .nav-link,
+.navbar.navbar-dark .navbar-nav .nav-item.active > .nav-link {
+  border-radius: 10px;
+  font-weight: bold;
+}
 .wrapped-title {
   width: 90%;
   margin: auto;

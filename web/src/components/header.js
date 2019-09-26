@@ -21,7 +21,14 @@ const Header = ({ location: { pathname } }) => {
 
   return (
     <Fragment>
-      <MDBNavbar className='smooth-shadow' style={bgColor} dark expand='md' scrolling fixed='top'>
+      <MDBNavbar
+        className='smooth-shadow text-center'
+        style={bgColor}
+        dark
+        expand='md'
+        scrolling
+        fixed='top'
+      >
         <Link className='nav-link logo' to='/'>
           <img src={logo} alt='klassmed logo' title='Klassmed Logo' />
         </Link>
