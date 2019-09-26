@@ -5,11 +5,13 @@ import { Link } from 'gatsby'
 const productsListItem = ({ image, slug, title }) => {
   return (
     <div key={slug} className='col-lg-3 col-md-6'>
-      <div className='single-unique-product shadow-lg'>
+      <div className='single-unique-product smooth-shadow'>
         <Img
           className='img-fluid mx-auto d-block'
           style={{
-            maxHeight: '300px'
+            maxHeight: '300px',
+            borderTopLeftRadius: '10px',
+            borderTopRightRadius: '10px'
           }}
           imgStyle={{
             maxHeight: '100%',

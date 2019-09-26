@@ -6,7 +6,7 @@ import './index.css'
 
 const Contact = () => (
   <Fragment>
-    <MDBCol sm={12} md={6} lg={8}>
+    <MDBCol className='px-md-0' sm={12} md={6} lg={8}>
       <Map
         isMarkerShown
         googleMapURL={`https://maps.googleapis.com/maps/api/js?${
@@ -19,7 +19,7 @@ const Contact = () => (
         mapElement={<div className='column-radius map' style={{ height: `100%` }} />}
       />
     </MDBCol>
-    <MDBCol sm={12} md={6} lg={4}>
+    <MDBCol className='px-md-0' sm={12} md={6} lg={4}>
       <Form />
     </MDBCol>
   </Fragment>

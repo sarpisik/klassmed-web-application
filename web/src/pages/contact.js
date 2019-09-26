@@ -13,7 +13,7 @@ export const query = graphql`
     }
   }
 `
-
+const rowStyle = { borderRadius: '10px' }
 const ContactPage = props => {
   const { data, errors } = props
 
@@ -30,8 +30,8 @@ const ContactPage = props => {
   return (
     <Fragment>
       <SEO title={page.title} />
-      <MDBContainer>
-        <MDBRow id='contact' className='py-5'>
+      <MDBContainer className='py-5'>
+        <MDBRow id='contact' style={rowStyle} className='smooth-shadow'>
           <Contact />
         </MDBRow>
       </MDBContainer>

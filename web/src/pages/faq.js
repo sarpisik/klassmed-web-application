@@ -31,7 +31,7 @@ const FaqPage = ({ data, errors }) => {
     <Fragment>
       <SEO title={page.title} />
       <MDBContainer fluid>
-        <MDBRow className='landing-background-cover text-white justify-content-center align-items-center'>
+        <MDBRow className='landing-background-cover text-white justify-content-center align-items-center smooth-shadow'>
           <MDBCol sm={6} xl={4}>
             <h1 className='text-uppercase'>{page.title}</h1>
 

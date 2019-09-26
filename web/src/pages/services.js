@@ -4,16 +4,17 @@ import BlockContent from '../components/block-content'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
-import { MDBContainer, MDBRow, MDBCol } from 'mdbreact'
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardBody,
+  MDBCardTitle,
+  MDBCardText
+} from 'mdbreact'
 import Img from 'gatsby-image'
 import { filterOutServices, isOdd } from '../lib/helpers'
-
-const Service = ({ title, description, id }, index) => (
-  <MDBCol key={id} sm={6}>
-    <h4 className={`service-title ${isOdd(index) ? 'odd' : 'even'} p-2 text-white`}>{title}</h4>
-    <p>{description}</p>
-  </MDBCol>
-)
 
 export const query = graphql`
   query ServicesPageQuery {
@@ -51,6 +52,17 @@ export const query = graphql`
   }
 `
 
+const Service = ({ title, description, id }, index) => (
+  <MDBCard key={id} className='smooth-shadow mb-3'>
+    <MDBCardBody>
+      <MDBCardTitle className={`service-title ${isOdd(index) ? 'odd' : 'even'} p-2 text-white`}>
+        {title}
+      </MDBCardTitle>
+      <MDBCardText>{description}</MDBCardText>
+    </MDBCardBody>
+  </MDBCard>
+)
+
 const ServicesPage = ({ data, errors }) => {
   if (errors) return <GraphQLErrorList errors={errors} />
 
@@ -61,14 +73,17 @@ const ServicesPage = ({ data, errors }) => {
       'Missing "Services" page data. Open the studio at http://localhost:3333 and add "Services" page data and restart the development server.'
     )
   }
-
-  const services = filterOutServices(data.services) || []
+  let servicesColFirst = []
+  let servicesColSecond = []
+  filterOutServices(data.services || []).forEach((service, index) =>
+    isOdd(index) ? servicesColFirst.push(service) : servicesColSecond.push(service)
+  )
 
   return (
     <Fragment>
       <SEO title={page.title} />
       <MDBContainer fluid>
-        <MDBRow className='landing-background-cover text-white justify-content-center'>
+        <MDBRow className='landing-background-cover text-white justify-content-center smooth-shadow'>
           <MDBCol sm={12} md={8} lg={6} xl={4}>
             <Img className='img-fluid' fluid={data.image_teknik_dunya.childImageSharp.fluid} />
           </MDBCol>
@@ -79,7 +94,10 @@ const ServicesPage = ({ data, errors }) => {
         </MDBRow>
       </MDBContainer>
       <Container>
-        <MDBRow>{services.map(Service)}</MDBRow>
+        <MDBRow>
+          <MDBCol sm={6}>{servicesColFirst.map(Service)}</MDBCol>
+          <MDBCol sm={6}>{servicesColSecond.map(Service)}</MDBCol>
+        </MDBRow>
       </Container>
     </Fragment>
   )
