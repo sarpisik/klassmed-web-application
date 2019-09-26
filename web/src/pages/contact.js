@@ -30,7 +30,7 @@ const ContactPage = props => {
   return (
     <Fragment>
       <SEO title={page.title} />
-      <MDBContainer className='py-5'>
+      <MDBContainer className='py-5 px-4'>
         <MDBRow id='contact' style={rowStyle} className='smooth-shadow'>
           <Contact />
         </MDBRow>
