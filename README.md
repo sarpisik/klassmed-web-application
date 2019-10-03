@@ -1,13 +1,12 @@
 # A JAMStack web application built with [Gatsby](https://www.gatsbyjs.org/) & [Sanity.io](https://www.sanity.io)
 
-Click [here](https://www.klassmed.com) to see application
+Click [here](https://www.klassmed.com) to see application.
 
 - [Features](#features)
 - [Installation](#installation)
 - [Env variables](#env-variables)
-- [Usage example](#usage-example)
-  - [Node Mailer Configuration (Email Distributing)](<#node-mailer-configuration-(email-distributing)>)
-  - [Gatsby Configuration (Graphql)](<#gatsby-configuration-(graphql)>)
+  - [Node Mailer Configuration (Email Distributing)](#node-mailer-configuration)
+  - [Gatsby Configuration (Graphql)](#gatsby-configuration)
 - [Development setup](#development-setup)
   - [Run it](#run-it)
   - [Development workflow](#development-workflow)
@@ -51,7 +50,7 @@ npm run init
 
 ## Env variables
 
-### Node Mailer Configuration (Email Distributing)
+### Node Mailer Configuration
 
 - EMAIL_HOST = Email hosting server address.
 - EMAIL_AUTH_USER = User name.
@@ -60,7 +59,7 @@ npm run init
 - EMAIL_RECEIVER = Your client's email address to send.
 - EMAIL_CC = Optional email address.
 
-### Gatsby Configuration (Graphql)
+### Gatsby Configuration
 
 - SANITY_PROJECT_ID = Your project ID in sanity.io.
 - SANITY_DATASET = Dataset name.
